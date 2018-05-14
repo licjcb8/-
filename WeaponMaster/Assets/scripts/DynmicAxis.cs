@@ -4,13 +4,13 @@ using System.Collections;
 public class DynmicAxis : MonoBehaviour
 {
     public StatusBar Hpbar;
+    
  
     public float m_fSpeed = 10.0F;
     public float m_fRotSpeed = 100.0F;
     public float dmg = 20;
-    public float hpmax = 100;
+    public float hpmax = 100;   
     public float hp =100;
-    
 
 
     void Update()
@@ -47,10 +47,12 @@ public class DynmicAxis : MonoBehaviour
     {
         if (collision.collider.tag == "Monster")
         {
-            hp = hp - dmg;
+            hp = hp - gameObject.GetComponent<Monster>(dmg);
             if (hp == 0)
             { Destroy(collision.gameObject); }
+            
         }
+        Hpbar.Set(hp, hpmax);
     }
 
 }

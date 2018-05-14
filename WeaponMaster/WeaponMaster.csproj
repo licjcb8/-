@@ -286,7 +286,7 @@
     <Compile Include="Assets\scripts\BillBoard.cs" />
     <Compile Include="Assets\scripts\DynamicAxisMouse.cs" />
     <Compile Include="Assets\scripts\DynmicAxis.cs" />
-    <Compile Include="Assets\scripts\Playerdmg.cs" />
+    <Compile Include="Assets\scripts\Monster.cs" />
     <Compile Include="Assets\scripts\StatusBar.cs" />
     <Compile Include="Assets\UnityChan\Scripts\CameraController.cs" />
     <Compile Include="Assets\UnityChan\Scripts\FaceUpdate.cs" />
