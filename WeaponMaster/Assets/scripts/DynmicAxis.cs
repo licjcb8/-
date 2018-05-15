@@ -3,6 +3,7 @@ using System.Collections;
 
 public class DynmicAxis : MonoBehaviour
 {
+  
     public StatusBar Hpbar;
     
  
@@ -11,10 +12,17 @@ public class DynmicAxis : MonoBehaviour
     public float dmg = 20;
     public float hpmax = 100;   
     public float hp =100;
-
-
+    public int exp = 0;
+    public int lv = 1;
+    
     void Update()
     {
+        if (exp == 100)
+        {
+            exp = 0;
+            lv++;
+            Debug.Log("Level up!");
+        }
         //float translation = Input.GetAxis("Vertical") * speed;
         //float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
         //translation *= Time.deltaTime;
@@ -45,14 +53,27 @@ public class DynmicAxis : MonoBehaviour
     }
      void OnCollisionEnter(Collision collision)
     {
+
         if (collision.collider.tag == "Monster")
         {
-            hp = hp - gameObject.GetComponent<Monster>(dmg);
-            if (hp == 0)
-            { Destroy(collision.gameObject); }
-            
+
+            hp = hp - collision.gameObject.GetComponent<Monster>().dmg;
+            if (collision.gameObject.GetComponent<Monster>().hp == 0)
+            {
+                Destroy(collision.gameObject);
+                exp = exp + collision.gameObject.GetComponent<Monster>().exp;
+            }
+
+        }
+
+        else if (collision.collider.tag == "HPReset")
+        {
+            hp = hpmax;
         }
         Hpbar.Set(hp, hpmax);
+
+
     }
 
+   
 }

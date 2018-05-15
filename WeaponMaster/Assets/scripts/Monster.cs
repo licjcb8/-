@@ -7,6 +7,11 @@ public class Monster : MonoBehaviour {
     public float dmg = 10;
     public float hpmax = 100;
     public float hp = 100;
+    public int exp = 50;
+    public float power = 50.0f;
+    Rigidbody rb;
+    
+ 
     // Use this for initialization
     void Start () {
 		
@@ -20,9 +25,9 @@ public class Monster : MonoBehaviour {
     {
         if (collision.collider.tag == "Player")
         {
-            hp = hp - dmg;
-         
+            hp = hp - collision.gameObject.GetComponent<DynmicAxis>().dmg;
             Hpbar.Set(hp,hpmax);
+            rb.AddForce(Vector3.forward * power);
         }
     }
 }
