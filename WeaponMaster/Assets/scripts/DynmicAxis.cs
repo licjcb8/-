@@ -4,26 +4,17 @@ using System.Collections;
 public class DynmicAxis : MonoBehaviour
 {
   
-    public StatusBar Hpbar;
+ 
     
  
     public float m_fSpeed = 10.0F;
     public float m_fRotSpeed = 100.0F;
     public float m_fPower;
-    public float dmg = 20;
-    public float hpmax = 100;   
-    public float hp =100;
-    public int exp = 0;
-    public int lv = 1;
+
     
     void Update()
     {
-        if (exp == 100)
-        {
-            exp = 0;
-            lv++;
-            Debug.Log("Level up!");
-        }
+       
         //float translation = Input.GetAxis("Vertical") * speed;
         //float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
         //translation *= Time.deltaTime;
@@ -47,37 +38,30 @@ public class DynmicAxis : MonoBehaviour
             transform.Translate(0, 0, fTranslation);
             transform.Rotate(0, fRotation, 0);
         }
+       
 
-        GUI.Box(new Rect(0, 0, 300, 100),
-                "Vertical:" + fVertical +
-                "\nHorizontal:" + fHorizontal);
+        //GUI.Box(new Rect(0, 0, 300, 100),
+        //        "Vertical:" + fVertical +
+        //        "\nHorizontal:" + fHorizontal);
     }
-     void OnCollisionEnter(Collision collision)
+
+
+    void OnCollisionEnter(Collision collision)
     {
         GameObject objTarget = collision.gameObject;
         Rigidbody rigidbodyTarget = collision.gameObject.GetComponent<Rigidbody>();
         rigidbodyTarget.AddForce(transform.forward * m_fPower * m_fSpeed);
 
-        if (collision.collider.tag == "Monster")
+        switch (collision.gameObject.name)
         {
-
-            hp = hp - collision.gameObject.GetComponent<Monster>().dmg;
-            if (collision.gameObject.GetComponent<Monster>().hp == 0)
-            {
-                Destroy(collision.gameObject);
-                exp = exp + collision.gameObject.GetComponent<Monster>().exp;
-            }
-
+            case "Monster":
+                GameManager.GetInstance().Event(GameManager.eItemBox.MONSTER);
+                break;
+            case "Boss":
+                GameManager.GetInstance().Event(GameManager.eItemBox.BOSS);
+                break;
         }
-
-        else if (collision.collider.tag == "HPReset")
-        {
-            hp = hpmax;
-        }
-        Hpbar.Set(hp, hpmax);
 
 
     }
-
-   
 }

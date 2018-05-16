@@ -31,7 +31,7 @@ public class Monster : MonoBehaviour {
 
         if (collision.collider.tag == "Player")
         {
-            hp = hp - collision.gameObject.GetComponent<DynmicAxis>().dmg;
+            hp = hp - collision.gameObject.GetComponent<Player>().dmg;
             Hpbar.Set(hp,hpmax);
           
         }
