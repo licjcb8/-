@@ -9,6 +9,7 @@ public class DynmicAxis : MonoBehaviour
  
     public float m_fSpeed = 10.0F;
     public float m_fRotSpeed = 100.0F;
+    public float m_fPower;
     public float dmg = 20;
     public float hpmax = 100;   
     public float hp =100;
@@ -53,6 +54,9 @@ public class DynmicAxis : MonoBehaviour
     }
      void OnCollisionEnter(Collision collision)
     {
+        GameObject objTarget = collision.gameObject;
+        Rigidbody rigidbodyTarget = collision.gameObject.GetComponent<Rigidbody>();
+        rigidbodyTarget.AddForce(transform.forward * m_fPower * m_fSpeed);
 
         if (collision.collider.tag == "Monster")
         {
