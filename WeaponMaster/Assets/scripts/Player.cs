@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
     public float hp = 100;
     public int exp = 0;
     public int lv = 1;
+    
 
     public void SetIventory(ItemManager.eItem item)
     {
@@ -34,7 +35,9 @@ public class Player : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
-     
+       
+      
+
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -69,6 +72,7 @@ public class Player : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
+        
         if (exp == 100)
         {
             exp = 0;
