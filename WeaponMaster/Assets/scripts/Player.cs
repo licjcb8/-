@@ -34,12 +34,7 @@ public class Player : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
-        if (exp == 100)
-        {
-            exp = 0;
-            lv++;
-            Debug.Log("Level up!");
-        }
+     
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -74,6 +69,11 @@ public class Player : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
-		
-	}
+        if (exp == 100)
+        {
+            exp = 0;
+            lv++;
+            Debug.Log("Level up!");
+        }
+    }
 }
