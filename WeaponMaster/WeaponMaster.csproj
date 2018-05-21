@@ -285,6 +285,7 @@
   <ItemGroup>
     <Compile Include="Assets\scripts\BillBoard.cs" />
     <Compile Include="Assets\scripts\CharacterAnimator.cs" />
+    <Compile Include="Assets\scripts\Dynamic.cs" />
     <Compile Include="Assets\scripts\DynamicAxisMouse.cs" />
     <Compile Include="Assets\scripts\DynmicAxis.cs" />
     <Compile Include="Assets\scripts\GameManager.cs" />
@@ -301,6 +302,7 @@
     <Compile Include="Assets\scripts\Monstermove.cs" />
     <Compile Include="Assets\scripts\MouseClick.cs" />
     <Compile Include="Assets\scripts\Navigate.cs" />
+    <Compile Include="Assets\scripts\NavTracing.cs" />
     <Compile Include="Assets\scripts\Player.cs" />
     <Compile Include="Assets\scripts\StatusBar.cs" />
     <Compile Include="Assets\UnityChan\Scripts\CameraController.cs" />
