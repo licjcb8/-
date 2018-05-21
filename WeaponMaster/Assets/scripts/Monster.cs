@@ -27,13 +27,19 @@ public class Monster : MonoBehaviour {
     {
         GameObject objTarget = collision.gameObject;
         Rigidbody rigidbodyTarget = collision.gameObject.GetComponent<Rigidbody>();
-        rigidbodyTarget.AddForce(transform.forward * m_fPower * m_fSpeed);
+
 
         if (collision.collider.tag == "Player")
         {
+            rigidbodyTarget.AddForce(transform.forward * m_fPower * m_fSpeed);
             hp = hp - collision.gameObject.GetComponent<Player>().dmg;
-            Hpbar.Set(hp,hpmax);
-          
+            Hpbar.Set(hp, hpmax);
+
         }
+        else
+        {
+
+        }
+
     }
 }

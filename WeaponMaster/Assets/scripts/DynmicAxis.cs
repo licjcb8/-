@@ -66,16 +66,19 @@ public class DynmicAxis : MonoBehaviour
     {
         GameObject objTarget = collision.gameObject;
         Rigidbody rigidbodyTarget = collision.gameObject.GetComponent<Rigidbody>();
-        rigidbodyTarget.AddForce(transform.forward * m_fPower * m_fSpeed);
+
 
         switch (collision.gameObject.name)
         {
             case "Monster":
+                rigidbodyTarget.AddForce(transform.forward * m_fPower * m_fSpeed);
                 GameManager.GetInstance().Event(GameManager.eItemBox.MONSTER);
                 break;
             case "Boss":
+                rigidbodyTarget.AddForce(transform.forward * m_fPower * m_fSpeed);
                 GameManager.GetInstance().Event(GameManager.eItemBox.BOSS);
                 break;
+           
         }
 
        
