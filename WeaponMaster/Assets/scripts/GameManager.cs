@@ -2,26 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterStatus
-{
-    string strStatusName;
-    int nStatus;
 
-    public string Name { get { return strStatusName; } }
-    public int Status { get { return nStatus; } }
-
-    public CharacterStatus(string Name, int Status)
-    {
-        Set(Name, Status);
-    }
-
-    public void Set(string Name, int Status)
-    {
-        Name = strStatusName;
-        Status = nStatus;
-    }
-
-}
 
 
 public class GameManager : MonoBehaviour {

@@ -2,17 +2,59 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public class CharacterStatus
+{
+    string strStatusName;
+    int nStatus;
+
+    public string Name { get { return strStatusName; } }
+    public int Status { get { return nStatus; } }
+
+    public CharacterStatus(string Name, int Status)
+    {
+        Set(Name, Status);
+    }
+
+    public void Set(string Name, int Status)
+    {
+        Name = strStatusName;
+        Status = nStatus;
+    }
+
+}
+
 public class Player : MonoBehaviour {
 
     List<ItemManager.eItem> m_listInventory = new List<ItemManager.eItem>();
+    List<CharacterStatus> m_listStatus = new List<CharacterStatus>();
     public StatusBar Hpbar;
+    public enum eStatus {  NONE = -1, DMG, HP, EXP, LV}
     public float dmg = 20;
     public float hpmax = 100;
     public float hp = 100;
     public int exp = 0;
     public int lv = 1;
-    
 
+    public void Initialize()
+    {
+        m_listStatus.Add(new CharacterStatus("데미지", 20));
+        m_listStatus.Add(new CharacterStatus("체력", 100));
+        m_listStatus.Add(new CharacterStatus("경험치", 0));
+        m_listStatus.Add(new CharacterStatus("레벨", 1));
+    }
+
+    public CharacterStatus GetStatus(eStatus status)
+    {
+        return m_listStatus[(int)status];
+    }
+
+    private void OnGUI()
+    {
+        for (int i = 0; i < m_listStatus.Count; i++)
+        {
+            GUI.Box(new Rect(Screen.width - 100, 20 * i, 100, 20), m_listStatus[i].Name);
+        }
+    }
     public void SetIventory(ItemManager.eItem item)
     {
         m_listInventory.Add(item);
