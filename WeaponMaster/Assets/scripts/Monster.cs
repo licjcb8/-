@@ -12,8 +12,8 @@ public class Monster : MonoBehaviour {
     public float m_fSpeed = 10.0f;
     public float m_fPower;
     Rigidbody rb;
-    
- 
+    public Rigidbody rigidbody;
+
     // Use this for initialization
     void Start () {
 		
@@ -36,9 +36,10 @@ public class Monster : MonoBehaviour {
             Hpbar.Set(hp, hpmax);
 
         }
-        else
+        else if (collision.collider.tag == "Wall")
         {
-
+           
+            rigidbody.isKinematic = true;
         }
 
     }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Monster
   - HPReset
+  - Wall
   layers:
   - Default
   - TransparentFX
