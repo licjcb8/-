@@ -34,6 +34,7 @@ public class Player : MonoBehaviour {
     public float hp = 100;
     public int exp = 0;
     public int lv = 1;
+    public GameObject DmgText;
 
     public void Initialize()
     {
@@ -63,6 +64,7 @@ public class Player : MonoBehaviour {
     {
         return m_listInventory.Find(obj => obj.Equals(item));
     }
+
     public ItemManager.eItem GetInventory(int idx)
     {
         return m_listInventory[idx];
@@ -75,10 +77,11 @@ public class Player : MonoBehaviour {
     {
         return m_listInventory.Count;
     }
+
     // Use this for initialization
     void Start () {
-       
-      
+
+        DmgText = GameObject.Find("DMGText");
 
     }
     void OnCollisionEnter(Collision collision)
@@ -105,13 +108,7 @@ public class Player : MonoBehaviour {
 
 
     }
-    private void OnGUI()
-    {
-        for(int i=0; i<m_listInventory.Count; i++)
-        {
-            GUI.Box(new Rect(0, 20 * i, 100, 20), "" + m_listInventory[i]);
-        }
-    }
+
     // Update is called once per frame
     void Update () {
         

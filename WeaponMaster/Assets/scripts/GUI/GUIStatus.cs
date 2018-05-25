@@ -7,14 +7,32 @@ public class GUIStatus : MonoBehaviour {
     public GameObject m_prefabButton;
     public GameObject m_objContext;
 
-    public void AddStat()
+    public void AddStat(Player.eStatus status, StatusPanel cPanel)
     {
+        CharacterStatus cStatus = GameManager.GetInstance().m_cPlayer.GetStatus(status);
         GameObject objButton = Instantiate(m_prefabButton);
         GUIItemButton cItemButton = objButton.GetComponent<GUIItemButton>();
         Button btnButton = objButton.GetComponent<Button>();
+        btnButton.onClick.AddListener(() => cPanel.Set(status));
+        cItemButton.m_cText.text = cStatus.Name;
+        objButton.transform.SetParent(m_objContext.transform);
+        m_statuslist.Add(objButton);
 
     }
 
+    public void DeleteStatus(int idx)
+    {
+        GameObject button = m_statuslist[idx];
+        m_statuslist.Remove(m_statuslist[idx]);
+        Destroy(button);
+    }
+
+    public void ReleaseStatus()
+    {
+        for (int i = m_statuslist.Count - 1; i >= 0; i--)
+            DeleteStatus(i);
+        m_statuslist.Clear();
+    }
 
     public void SetContextSize()
     {

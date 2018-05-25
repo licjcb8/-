@@ -294,7 +294,10 @@
     <Compile Include="Assets\scripts\GUI\GUIItemList.cs" />
     <Compile Include="Assets\scripts\GUI\GUIManager.cs" />
     <Compile Include="Assets\scripts\GUI\GUIPanel.cs" />
+    <Compile Include="Assets\scripts\GUI\GUIStat.cs" />
     <Compile Include="Assets\scripts\GUI\GUIStatus.cs" />
+    <Compile Include="Assets\scripts\GUI\StatusPanel.cs" />
+    <Compile Include="Assets\scripts\GUI\statusscripit\dmg.cs" />
     <Compile Include="Assets\scripts\HPreset.cs" />
     <Compile Include="Assets\scripts\ItemBox.cs" />
     <Compile Include="Assets\scripts\ItemManager.cs" />
