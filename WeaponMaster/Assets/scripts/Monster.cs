@@ -11,7 +11,6 @@ public class Monster : MonoBehaviour {
     public float power = 50.0f;
     public float m_fSpeed = 10.0f;
     public float m_fPower;
-    Rigidbody rb;
     public Rigidbody rigidbody;
 
     // Use this for initialization
