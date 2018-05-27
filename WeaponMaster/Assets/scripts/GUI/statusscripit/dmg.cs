@@ -4,15 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class dmg : MonoBehaviour {
- 
+    public Player player;
+    
     public Text DMGText;
+
 	// Use this for initialization
 	void Start () {
         DMGText = GetComponent<Text>();
+  
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        DMGText.text = "DMG : " + gameObject.GetComponent<Player>().dmg;
-	}
+        DMGText.text = "DMG : " +player.dmg;
+      
+   
+    }
 }

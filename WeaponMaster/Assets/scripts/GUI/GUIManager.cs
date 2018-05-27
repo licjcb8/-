@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GUIManager : MonoBehaviour {
     public List<GameObject> m_listScene;
     public GUIInventory m_guiInventory;
-    public enum eSceneStatus {TITLE, GAMEOVER, THEEND, INVENTORY,PLAY, MAX};
+    public enum eSceneStatus {TITLE, GAMEOVER, THEEND, INVENTORY,STATUS,PLAY, MAX};
     eSceneStatus m_eCurrentStatus;
 
     void SetInventory()
@@ -36,6 +36,8 @@ public class GUIManager : MonoBehaviour {
                 GUIInventory inventory = m_listScene[(int)eSceneStatus.INVENTORY].GetComponent<GUIInventory>();
                 inventory.SetInventory(GameManager.GetInstance().m_cPlayer);
                 break;
+            case eSceneStatus.STATUS:
+                break;
             case eSceneStatus.PLAY:
                 break;
         }
@@ -59,10 +61,20 @@ public class GUIManager : MonoBehaviour {
                     SetStatus(GUIManager.eSceneStatus.PLAY);
                 }
                 break;
+            case eSceneStatus.STATUS:
+                if (Input.GetKeyUp(KeyCode.U))
+                {
+                    SetStatus(GUIManager.eSceneStatus.PLAY);
+                }
+                break;
             case eSceneStatus.PLAY:
                 if (Input.GetKeyUp(KeyCode.I))
                 {
                     SetStatus(GUIManager.eSceneStatus.INVENTORY);
+                }
+                else if (Input.GetKeyUp(KeyCode.U))
+                {
+                    SetStatus(GUIManager.eSceneStatus.STATUS);
                 }
                 break;
 
