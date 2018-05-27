@@ -105,13 +105,7 @@ public class Player : MonoBehaviour {
 
 
     }
-    private void OnGUI()
-    {
-        for(int i=0; i<m_listInventory.Count; i++)
-        {
-            GUI.Box(new Rect(0, 20 * i, 100, 20), "" + m_listInventory[i]);
-        }
-    }
+
     // Update is called once per frame
     void Update () {
         
