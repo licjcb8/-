@@ -11,7 +11,7 @@ public class Monster : MonoBehaviour {
     public float power = 50.0f;
     public float m_fSpeed = 10.0f;
     public float m_fPower;
-    public Rigidbody rigidbody;
+    public Rigidbody monster;
 
     // Use this for initialization
     void Start () {
@@ -37,8 +37,9 @@ public class Monster : MonoBehaviour {
         }
         else if (collision.collider.tag == "Wall")
         {
-           
-            rigidbody.isKinematic = true;
+
+            monster.isKinematic = true;
+            monster.isKinematic = false;
         }
 
     }

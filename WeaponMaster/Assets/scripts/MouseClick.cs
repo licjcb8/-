@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MouseClick : MonoBehaviour {
     public Camera m_cCamera;
-  
-
+   
+    public int A = 0;
     private void FixedUpdate()
     {
         if (Input.GetMouseButton(0))
@@ -21,6 +21,7 @@ public class MouseClick : MonoBehaviour {
                     {
                         case "NPC":
                             GameManager.GetInstance().Event(GameManager.eItemBox.NPC);
+                            A = 1;
                             break;
                     }
                     Debug.Log("Ray:" + hitInfo.collider.gameObject.name);

@@ -94,7 +94,9 @@ public class Player : MonoBehaviour {
    hp = hp - collision.gameObject.GetComponent<Monster>().dmg;
             if (collision.gameObject.GetComponent<Monster>().hp == 0)
             {
+               
                 Destroy(collision.gameObject);
+                
                exp = exp + collision.gameObject.GetComponent<Monster>().exp;
             }
 
@@ -117,6 +119,9 @@ public class Player : MonoBehaviour {
             exp = 0;
             lv++;
             Debug.Log("Level up!");
+            dmg = dmg + 10;
+            hpmax = hpmax + 50;
+            hp = hpmax;
         }
     }
 }

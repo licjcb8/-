@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GUIManager : MonoBehaviour {
+
     public List<GameObject> m_listScene;
     public GUIInventory m_guiInventory;
-    public enum eSceneStatus {TITLE, GAMEOVER, THEEND, INVENTORY,STATUS,PLAY, MAX};
+    public MouseClick NPC;
+    public int Selection = 0;
+    public enum eSceneStatus {TITLE, GAMEOVER, THEEND, INVENTORY,STATUS,SHOP,BUY,SELL,PLAY, MAX};
     eSceneStatus m_eCurrentStatus;
 
     void SetInventory()
@@ -38,6 +41,13 @@ public class GUIManager : MonoBehaviour {
                 break;
             case eSceneStatus.STATUS:
                 break;
+            case eSceneStatus.SHOP:
+                break;
+            case eSceneStatus.BUY:
+                break;
+            case eSceneStatus.SELL:
+                break;
+       
             case eSceneStatus.PLAY:
                 break;
         }
@@ -67,6 +77,33 @@ public class GUIManager : MonoBehaviour {
                     SetStatus(GUIManager.eSceneStatus.PLAY);
                 }
                 break;
+            case eSceneStatus.SHOP:
+                if (Input.GetKeyUp(KeyCode.Escape))
+                {
+                    SetStatus(GUIManager.eSceneStatus.PLAY);
+                    NPC.A = 0;
+                }
+                if (Selection == 1)
+                {
+                    SetStatus(GUIManager.eSceneStatus.BUY);
+                }
+                if (Selection == 2)
+                {
+                    SetStatus(GUIManager.eSceneStatus.SELL);
+                }
+                break;
+            case eSceneStatus.BUY:
+                if(Selection == 0)
+                {
+                    SetStatus(GUIManager.eSceneStatus.SHOP);
+                }
+                break;
+            case eSceneStatus.SELL:
+                if (Selection == 0)
+                {
+                    SetStatus(GUIManager.eSceneStatus.SHOP);
+                }
+                break;
             case eSceneStatus.PLAY:
                 if (Input.GetKeyUp(KeyCode.I))
                 {
@@ -76,6 +113,12 @@ public class GUIManager : MonoBehaviour {
                 {
                     SetStatus(GUIManager.eSceneStatus.STATUS);
                 }
+                else if (NPC.A == 1)
+                {
+                    SetStatus(GUIManager.eSceneStatus.SHOP);
+               
+                }
+            
                 break;
 
         }
@@ -97,6 +140,18 @@ public class GUIManager : MonoBehaviour {
         }
     }
 
+    public void SetBUY()
+    {
+        Selection = 1;
+    }
+    public void SetSell()
+    {
+        Selection = 2;
+    }
+    public void GoBackShop()
+    {
+        Selection = 0;
+    }
 
 
     // Use this for initialization
