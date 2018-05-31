@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     public Player m_cPlayer;
+    public NPC m_cNPC;
     public List<ItemBox> m_listItemBoxes;
     public ItemManager m_cItemManager;
     public GUIManager m_cGUIManager;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour {
     void Start() {
         m_cInstance = this;
         m_cGUIManager.SetStatus(m_eSceneStatus);
+
     }
 
     public void EventStart()

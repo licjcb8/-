@@ -7,6 +7,7 @@ public class GUIManager : MonoBehaviour {
 
     public List<GameObject> m_listScene;
     public GUIInventory m_guiInventory;
+    public GUINPCInventory m_guiNPCInventory;
     public MouseClick NPC;
     public int Selection = 0;
     public enum eSceneStatus {TITLE, GAMEOVER, THEEND, INVENTORY,STATUS,SHOP,BUY,SELL,PLAY, MAX};
@@ -44,6 +45,8 @@ public class GUIManager : MonoBehaviour {
             case eSceneStatus.SHOP:
                 break;
             case eSceneStatus.BUY:
+                GUINPCInventory NPCInventory = m_listScene[(int)eSceneStatus.BUY].GetComponent<GUINPCInventory>();
+                NPCInventory.SetInventory(GameManager.GetInstance().m_cNPC);
                 break;
             case eSceneStatus.SELL:
                 break;
