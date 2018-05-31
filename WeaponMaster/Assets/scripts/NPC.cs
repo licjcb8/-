@@ -31,11 +31,11 @@ public class NPC : MonoBehaviour {
         return m_listInventory.Count;
     }
     void Start () {
-		
-	}
+        SetIventory();
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
+     
 	}
 }
