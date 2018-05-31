@@ -27,7 +27,7 @@ public class Item
 }
 
 public class ItemManager: MonoBehaviour {
-    public enum eItem { NONE= -1, ShortSword, Shield, Potion}
+    public enum eItem { NONE= -1, ShortSword, Shield, Potion, Slime, Skeleton}
     List<Item> m_listItems = new List<Item>();
 	// Use this for initialization
 	void Start () {
@@ -44,7 +44,8 @@ public class ItemManager: MonoBehaviour {
         m_listItems.Add(new Item("숏소드", "매우 허접한 숏소드, 공격력 +10", "ShortSword"));
         m_listItems.Add(new Item("쉴드", "매우 허접한 쉴드, 방어력 +10", "Shield"));
         m_listItems.Add(new Item("포션", "빨간포션, 체력 +20", "Potion"));
-
+        m_listItems.Add(new Item("슬라임액체", "슬라임을 잡다보면 획득할 수 있다, 잡템", "Slime"));
+        m_listItems.Add(new Item("스켈레톤의 골반뼈", "스켈레톤의 부러진 골반뼈인 듯 하다, 잡템", "Skeleton"));
     }
 
     public Item GetItem(eItem item)
