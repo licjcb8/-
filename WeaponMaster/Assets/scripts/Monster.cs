@@ -20,7 +20,7 @@ public class Monster : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+       
 	}
     private void OnCollisionEnter(Collision collision)
     {
@@ -39,6 +39,10 @@ public class Monster : MonoBehaviour {
         {
 
             monster.isKinematic = true;
+           
+        }
+        if (monster.isKinematic == true)
+        {
             monster.isKinematic = false;
         }
 

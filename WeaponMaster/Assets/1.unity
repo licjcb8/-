@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1110016448}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5408,8 +5408,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 427773185}
   m_HandleRect: {fileID: 427773184}
   m_Direction: 2
-  m_Value: 0.99999994
-  m_Size: 0
+  m_Value: 0.9999997
+  m_Size: 0.4855399
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5568,7 +5568,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000006528089, y: 0.00002004646}
+  m_AnchoredPosition: {x: 0.0000042862002, y: 0.00002004646}
   m_SizeDelta: {x: 0, y: 376.9}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1461897081
@@ -7415,7 +7415,7 @@ MonoBehaviour:
   power: 50
   m_fSpeed: 10
   m_fPower: 10
-  monster: {fileID: 0}
+  monster: {fileID: 2009013457}
 --- !u!54 &2009013457
 Rigidbody:
   m_ObjectHideFlags: 0
