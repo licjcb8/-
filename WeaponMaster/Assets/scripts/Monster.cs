@@ -12,7 +12,7 @@ public class Monster : MonoBehaviour {
     public float m_fSpeed = 10.0f;
     public float m_fPower;
     public Rigidbody monster;
-
+    
     // Use this for initialization
     void Start () {
 		
@@ -31,7 +31,9 @@ public class Monster : MonoBehaviour {
         if (collision.collider.tag == "Player")
         {
             rigidbodyTarget.AddForce(transform.forward * m_fPower * m_fSpeed);
+
             hp = hp - collision.gameObject.GetComponent<Player>().dmg;
+           
             Hpbar.Set(hp, hpmax);
 
         }

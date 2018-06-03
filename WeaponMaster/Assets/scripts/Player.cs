@@ -35,6 +35,7 @@ public class Player : MonoBehaviour {
     public int exp = 0;
     public int lv = 1;
     public GameObject DmgText;
+    public int Attacstatus = 0;
 
     public void Initialize()
     {
@@ -92,6 +93,10 @@ public class Player : MonoBehaviour {
         {
 
    hp = hp - collision.gameObject.GetComponent<Monster>().dmg;
+            if (Attacstatus == 1)
+            {
+                hp = hp + collision.gameObject.GetComponent<Monster>().dmg;
+            }
             if (collision.gameObject.GetComponent<Monster>().hp == 0)
             {
                 
