@@ -29,7 +29,7 @@ public class GUINPCInventory : MonoBehaviour {
         ItemManager.eItem item = (ItemManager.eItem)itemselect;
       
         Item cItem = GameManager.GetInstance().m_cItemManager.GetItem(item);
-        GetComponent<GUINPCInventory>().itemselect = (int)item;
+        itemselect = (int)item;
         player.SetIventory(item);
     }
 

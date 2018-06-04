@@ -26,6 +26,7 @@ public class CharacterStatus
 public class Player : MonoBehaviour {
 
     List<ItemManager.eItem> m_listInventory = new List<ItemManager.eItem>();
+    List<ItemManager.eItem> m_listEquipment = new List<ItemManager.eItem>();
     List<CharacterStatus> m_listStatus = new List<CharacterStatus>();
     public StatusBar Hpbar;
     public enum eStatus {  NONE = -1, DMG, HP, EXP, LV}
@@ -36,7 +37,7 @@ public class Player : MonoBehaviour {
     public int lv = 1;
     public GameObject DmgText;
     public int Weapon = 0;
-
+    public int itemselect;
     public void Initialize()
     {
         m_listStatus.Add(new CharacterStatus("데미지", 20));
@@ -61,22 +62,67 @@ public class Player : MonoBehaviour {
     {
         m_listInventory.Add(item);
     }
+
+    public void SetEquip()
+    {
+
+        ItemManager.eItem item = (ItemManager.eItem)itemselect;
+
+        Item cItem = GameManager.GetInstance().m_cItemManager.GetItem(item);
+        itemselect = (int)item;
+        m_listEquipment.Add(item);
+    }
+    public void SetEquipment()
+    {
+        ItemManager.eItem item = (ItemManager.eItem)itemselect;
+
+        Item cItem = GameManager.GetInstance().m_cItemManager.GetItem(item);
+        itemselect = (int)item;
+        if (cItem.fx == "atk")
+        {
+            dmg = dmg + cItem.stat;
+        }
+
+        else if (cItem.fx == "def")
+        {
+            hpmax = hpmax + cItem.stat;
+        }
+    }
     public ItemManager.eItem GetInventory(ItemManager.eItem item)
     {
         return m_listInventory.Find(obj => obj.Equals(item));
+    }
+
+    public ItemManager.eItem GetEquip(ItemManager.eItem item)
+    {
+        return m_listEquipment.Find(obj => obj.Equals(item));
     }
 
     public ItemManager.eItem GetInventory(int idx)
     {
         return m_listInventory[idx];
     }
+    public ItemManager.eItem GetEquip(int idx)
+    {
+        return m_listEquipment[idx];
+    }
+
     public void DeleteInvetory(ItemManager.eItem item)
     {
         m_listInventory.Remove(item);
     }
+
+    public void DeleteEquip(ItemManager.eItem item)
+    {
+        m_listEquipment.Remove(item);
+    }
     public int GetInventorySize()
     {
         return m_listInventory.Count;
+    }
+    public int GetEquipSize()
+    {
+        return m_listEquipment.Count;
     }
 
     // Use this for initialization
@@ -94,7 +140,7 @@ public class Player : MonoBehaviour {
 
    hp = hp - collision.gameObject.GetComponent<Monster>().dmg;
            
-            if (collision.gameObject.GetComponent<Monster>().hp == 0)
+            if (collision.gameObject.GetComponent<Monster>().hp <= 0)
             {
                 
                 Destroy(collision.gameObject);
