@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GUIPanel : MonoBehaviour {
     public Image m_cImage;
     public Text m_cText;
+   
     // Use this for initialization
 
     public void Set(ItemManager.eItem item)
@@ -13,6 +14,9 @@ public class GUIPanel : MonoBehaviour {
         Item cItem = GameManager.GetInstance().m_cItemManager.GetItem(item);
         m_cImage.sprite = Resources.Load<Sprite>("Tex/" + cItem.Image);
         m_cText.text = cItem.Comment;
+
+      
+
     }
 
     private void OnGUI()

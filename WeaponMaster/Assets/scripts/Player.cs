@@ -35,7 +35,7 @@ public class Player : MonoBehaviour {
     public int exp = 0;
     public int lv = 1;
     public GameObject DmgText;
-    public int Attacstatus = 0;
+    public int Weapon = 0;
 
     public void Initialize()
     {
@@ -93,10 +93,7 @@ public class Player : MonoBehaviour {
         {
 
    hp = hp - collision.gameObject.GetComponent<Monster>().dmg;
-            if (Attacstatus == 1)
-            {
-                hp = hp + collision.gameObject.GetComponent<Monster>().dmg;
-            }
+           
             if (collision.gameObject.GetComponent<Monster>().hp == 0)
             {
                 
@@ -128,5 +125,10 @@ public class Player : MonoBehaviour {
             hpmax = hpmax + 50;
             hp = hpmax;
         }
+    }
+
+   public void SetWeapon(int i)
+    {
+        Weapon = i;
     }
 }

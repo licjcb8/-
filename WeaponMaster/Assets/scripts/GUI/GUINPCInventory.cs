@@ -7,6 +7,7 @@ public class GUINPCInventory : MonoBehaviour {
     public GUIItemList m_cItemList;
     public GUIPanel m_cPanel;
     public Player player;
+    public int itemselect;
     
 
     public void SetInventory(NPC npc)
@@ -22,9 +23,13 @@ public class GUINPCInventory : MonoBehaviour {
         m_cPanel.Set(item);
     }
 
-    public void BuyItem (ItemManager.eItem item)
+    public void BuyItem ()
     {
+        
+        ItemManager.eItem item = (ItemManager.eItem)itemselect;
+      
         Item cItem = GameManager.GetInstance().m_cItemManager.GetItem(item);
+        GetComponent<GUINPCInventory>().itemselect = (int)item;
         player.SetIventory(item);
     }
 

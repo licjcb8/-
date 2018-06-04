@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Playercontroller : MonoBehaviour {
     Animator animator;
+   
     float moveHorizontal;
     float moveVertical;
     public int Attack = 0;
     bool isRunning = false;
     bool isDead = false;
     bool isAttacking = false;
+    bool ismeele = false;
+  
 
     void Awake()
     {
@@ -34,14 +37,20 @@ public class Playercontroller : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
+            if (GetComponent<Player>().Weapon==1)
             isAttacking = true;
-            GetComponent<Player>().Attacstatus = 1;
         }
 
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            if (GetComponent<Player>().Weapon == 0)
+                ismeele = true;
+        }
         else
         {
             isAttacking = false;
-            GetComponent<Player>().Attacstatus = 0;
+            ismeele = false;
+          
         }
         AnimationUpdate();
 	}
@@ -61,12 +70,22 @@ public class Playercontroller : MonoBehaviour {
             animator.SetBool("isAttacking", true);
           
         }
-
         else
         {
             animator.SetBool("isAttacking", false);
-         
+
         }
+
+        if (ismeele == true)
+        {
+            animator.SetBool("isMeele", true);
+        }
+        else
+        {
+            animator.SetBool("isMeele", false);
+
+        }
+
 
         if (isDead == true)
         {
