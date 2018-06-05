@@ -142,9 +142,6 @@ public class Player : MonoBehaviour {
            
             if (collision.gameObject.GetComponent<Monster>().hp <= 0)
             {
-                
-                Destroy(collision.gameObject);
-                
                exp = exp + collision.gameObject.GetComponent<Monster>().exp;
             }
 

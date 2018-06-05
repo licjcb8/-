@@ -12,7 +12,7 @@ public class Monster : MonoBehaviour {
     public float m_fSpeed = 10.0f;
     public float m_fPower;
     public Rigidbody monster;
-    
+   public bool isDie = false;
     // Use this for initialization
     void Start () {
 		
@@ -20,8 +20,21 @@ public class Monster : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       
-	}
+        Hpbar.Set(hp, hpmax);
+        if (hp <= 0)
+        {
+            isDie = true;
+        }
+        Dead();
+    }
+    void Dead()
+    {
+        if (isDie == true)
+        {
+            Destroy(gameObject);
+            GameManager.GetInstance().m_cPlayer.exp = GameManager.GetInstance().m_cPlayer.exp + exp;
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
         GameObject objTarget = collision.gameObject;
@@ -34,9 +47,10 @@ public class Monster : MonoBehaviour {
 
             hp = hp - collision.gameObject.GetComponent<Player>().dmg;
            
-            Hpbar.Set(hp, hpmax);
+          
 
         }
+      
         else if (collision.collider.tag == "Wall")
         {
 
@@ -47,6 +61,7 @@ public class Monster : MonoBehaviour {
         {
             monster.isKinematic = false;
         }
+
 
     }
 }

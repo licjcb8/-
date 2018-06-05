@@ -44,21 +44,10 @@ public class DynmicAxis : MonoBehaviour
             transform.Translate(0, 0, fTranslation);
             transform.Rotate(0, fRotation, 0);
 
-            //if (anistate != 1)
-            //{
-            //    animator.SetInteger("State", 1);
-            //    anistate = 1;
-            //}
+        
 
         }
-        //else
-        //{
-        //    if (anistate != 0)
-        //    {
-        //        animator.SetInteger("State", 0);
-        //        anistate = 0;
-        //    }
-        //}
+       
     }
 
 
