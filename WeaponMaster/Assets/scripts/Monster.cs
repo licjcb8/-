@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Monster : MonoBehaviour {
+   
     public StatusBar Hpbar;
+    public GameObject RsMonster;
+    public Transform RsPos;
     public float dmg = 10;
     public float hpmax = 100;
     public float hp = 100;
@@ -13,6 +16,8 @@ public class Monster : MonoBehaviour {
     public float m_fPower;
     public Rigidbody monster;
    public bool isDie = false;
+   
+
     // Use this for initialization
     void Start () {
 		
@@ -33,6 +38,8 @@ public class Monster : MonoBehaviour {
         {
             Destroy(gameObject);
             GameManager.GetInstance().m_cPlayer.exp = GameManager.GetInstance().m_cPlayer.exp + exp;
+            //RespawnMonster();
+            
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -64,4 +71,10 @@ public class Monster : MonoBehaviour {
 
 
     }
+    void RespawnMonster()
+    {
+        Instantiate(RsMonster, RsPos.position, RsPos.rotation);
+    }
+
+   
 }

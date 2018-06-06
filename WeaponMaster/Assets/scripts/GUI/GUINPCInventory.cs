@@ -25,12 +25,10 @@ public class GUINPCInventory : MonoBehaviour {
 
     public void BuyItem ()
     {
-        
         ItemManager.eItem item = (ItemManager.eItem)itemselect;
-      
-        Item cItem = GameManager.GetInstance().m_cItemManager.GetItem(item);
         itemselect = (int)item;
-        player.SetIventory(item);
+        Item cItem = GameManager.GetInstance().m_cItemManager.GetItem(item);
+         player.SetIventory(item);
     }
 
   

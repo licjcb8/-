@@ -14,10 +14,7 @@ public class GUIPanel : MonoBehaviour {
         Item cItem = GameManager.GetInstance().m_cItemManager.GetItem(item);
         m_cImage.sprite = Resources.Load<Sprite>("Tex/" + cItem.Image);
         m_cText.text = cItem.Comment;
-
-      
-
-    }
+   }
 
     private void OnGUI()
     {

@@ -11,6 +11,7 @@ public class NPC : MonoBehaviour {
     {
         m_listInventory.Add(ItemManager.eItem.ShortSword);
         m_listInventory.Add(ItemManager.eItem.Shield);
+        m_listInventory.Add(ItemManager.eItem.Bowgun);
         m_listInventory.Add(ItemManager.eItem.Potion);
     }
     public ItemManager.eItem GetInventory(ItemManager.eItem item)
