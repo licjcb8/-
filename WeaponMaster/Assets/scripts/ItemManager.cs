@@ -35,8 +35,9 @@ public class Item
 public class ItemManager: MonoBehaviour {
     public enum eItem { NONE= -1, ShortSword, Shield, Bowgun,Potion, Slime, Skeleton,Setting}
     List<Item> m_listItems = new List<Item>();
-	// Use this for initialization
-	void Start () {
+    public int itemselect;
+    // Use this for initialization
+    void Start () {
         Initialize();
 	}
 	
@@ -61,7 +62,6 @@ public class ItemManager: MonoBehaviour {
     {
         return m_listItems[(int)item];
     }
-
  
     private void OnGUI()
     {

@@ -74,6 +74,7 @@ public class Monster : MonoBehaviour {
     void RespawnMonster()
     {
         Instantiate(RsMonster, RsPos.position, RsPos.rotation);
+        
     }
 
    

@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class NavTracing : MonoBehaviour {
     public Transform m_Target; //추적 대상
+
     public float m_fMinDist = 5; //대상을 추적하는 범위
     NavMeshAgent m_cNavMeshAgent;
     float m_fDist = 0; //대상과의 남은 거리 //디버깅을 위해 멤버변수로 만듦.
@@ -23,6 +24,7 @@ public class NavTracing : MonoBehaviour {
 
     void TrancingTarget()
     {
+      
         Vector3 vTargetPos = m_Target.position; //추적대상 위치
         Vector3 vPos = transform.position; //물체위치
 

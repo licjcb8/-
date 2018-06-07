@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Navigate : MonoBehaviour {
     public Transform m_Target;
+    public Player player;
     public float m_fMinDist = 5;
     NavMeshAgent m_cNavMeshAgent;
     float m_fDist = 0;
@@ -19,6 +20,7 @@ public class Navigate : MonoBehaviour {
 
     void TracingTarget()
     {
+        m_Target = player.transform;
         Vector3 vTargetPos = m_Target.position;
         Vector3 vPos = transform.position;
 

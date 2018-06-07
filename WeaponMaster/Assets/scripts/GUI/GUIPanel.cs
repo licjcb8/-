@@ -11,10 +11,12 @@ public class GUIPanel : MonoBehaviour {
 
     public void Set(ItemManager.eItem item)
     {
+        
         Item cItem = GameManager.GetInstance().m_cItemManager.GetItem(item);
         m_cImage.sprite = Resources.Load<Sprite>("Tex/" + cItem.Image);
         m_cText.text = cItem.Comment;
-   }
+        GameManager.GetInstance().m_cItemManager.itemselect =(int)item ;
+    }
 
     private void OnGUI()
     {
