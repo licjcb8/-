@@ -5,15 +5,9 @@ using UnityEngine;
 public class ItemBox : MonoBehaviour {
     public ItemManager.eItem m_eItem;
 
-    public virtual bool CheckEvent(Player player)
+    public void GiveItem(Player player)
     {
-        if (m_eItem != ItemManager.eItem.NONE)
-        {
-            player.SetIventory(m_eItem);
-            m_eItem = ItemManager.eItem.NONE;
-            return true;
-        }
-        return false;
+        player.SetIventory(m_eItem);
     }
 	// Use this for initialization
 	void Start () {

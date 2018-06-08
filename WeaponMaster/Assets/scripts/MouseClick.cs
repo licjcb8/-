@@ -20,7 +20,7 @@ public class MouseClick : MonoBehaviour {
                     switch (hitInfo.collider.gameObject.name)
                     {
                         case "NPC":
-                            GameManager.GetInstance().Event(GameManager.eItemBox.NPC);
+                          
                             A = 1;
                             break;
                     }

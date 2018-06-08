@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Monster : MonoBehaviour {
-   
+    public ItemBox itembox;
     public StatusBar Hpbar;
     public GameObject RsMonster;
     public Transform RsPos;
@@ -16,6 +16,7 @@ public class Monster : MonoBehaviour {
     public float m_fPower;
     public Rigidbody monster;
    public bool isDie = false;
+    
    
 
     // Use this for initialization
@@ -38,8 +39,8 @@ public class Monster : MonoBehaviour {
         {
             Destroy(gameObject);
             GameManager.GetInstance().m_cPlayer.exp = GameManager.GetInstance().m_cPlayer.exp + exp;
-            //RespawnMonster();
-            
+            RespawnMonster();
+            itembox.GiveItem(GameManager.GetInstance().m_cPlayer);
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -73,7 +74,10 @@ public class Monster : MonoBehaviour {
     }
     void RespawnMonster()
     {
-        Instantiate(RsMonster, RsPos.position, RsPos.rotation);
+        GameObject objGame = Instantiate(RsMonster, RsPos.position, RsPos.rotation);
+       Monster monster = objGame.GetComponent<Monster>();
+        monster.RsMonster = RsMonster;
+        monster.RsPos = RsPos;
         
     }
 
