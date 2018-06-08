@@ -8,11 +8,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
     public Player m_cPlayer;
     public NPC m_cNPC;
-    public List<ItemBox> m_listItemBoxes;
     public ItemManager m_cItemManager;
     public GUIManager m_cGUIManager;
     public GUIManager.eSceneStatus m_eSceneStatus;
-    public enum eItemBox {MONSTER,BOSS,NPC }
+   
 
     static GameManager m_cInstance;
     static public GameManager GetInstance()
@@ -52,20 +51,6 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 		
 	}
-    public void Event(eItemBox item)
-    {
-        switch (item)
-        {
-            case eItemBox.MONSTER:
-                m_listItemBoxes[(int)item].CheckEvent(m_cPlayer);
-                break;
-            case eItemBox.BOSS:
-                m_listItemBoxes[(int)item].CheckEvent(m_cPlayer);
-                break;
-            case eItemBox.NPC:
-                m_listItemBoxes[(int)item].CheckEvent(m_cPlayer);
-                break;
-        }
-    }
+    
     
 }

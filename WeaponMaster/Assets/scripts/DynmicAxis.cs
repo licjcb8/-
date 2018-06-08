@@ -14,7 +14,7 @@ public class DynmicAxis : MonoBehaviour
 
    void Start()
     {
-        //animator = GetComponent<Animator>();
+      
 
     }
 
@@ -56,21 +56,8 @@ public class DynmicAxis : MonoBehaviour
         GameObject objTarget = collision.gameObject;
         Rigidbody rigidbodyTarget = collision.gameObject.GetComponent<Rigidbody>();
 
-
-        switch (collision.gameObject.name)
-        {
-            case "Monster":
-                rigidbodyTarget.AddForce(transform.forward * m_fPower * m_fSpeed);
-                GameManager.GetInstance().Event(GameManager.eItemBox.MONSTER);
-                break;
-            case "Boss":
-                rigidbodyTarget.AddForce(transform.forward * m_fPower * m_fSpeed);
-                GameManager.GetInstance().Event(GameManager.eItemBox.BOSS);
-                break;
-           
-        }
-
-       
+        if (collision.collider.tag == "Monster")
+        { rigidbodyTarget.AddForce(transform.forward * m_fPower * m_fSpeed); }
 
     }
 }

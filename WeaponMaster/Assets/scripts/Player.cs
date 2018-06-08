@@ -38,6 +38,7 @@ public class Player : MonoBehaviour {
     public GameObject DmgText;
     public int Weapon = 0;
     public int itemselect;
+    public GameObject mainCamera;
     public void Initialize()
     {
         m_listStatus.Add(new CharacterStatus("데미지", 20));
