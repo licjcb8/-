@@ -59,7 +59,7 @@ public class Player : MonoBehaviour {
             GUI.Box(new Rect(Screen.width - 100, 20 * i, 100, 20), m_listStatus[i].Name);
         }
     }
-    public void SetIventory(ItemManager.eItem item)
+    public void SetInventory(ItemManager.eItem item)
     {
         m_listInventory.Add(item);
     }

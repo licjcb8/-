@@ -24,7 +24,7 @@ public class NavTracing : MonoBehaviour {
 
     void TrancingTarget()
     {
-        m_Target = GameManager.GetInstance().m_cPlayer.transform;
+       m_Target = GameManager.GetInstance().m_cPlayer.transform;
         Vector3 vTargetPos = m_Target.position; //추적대상 위치
         Vector3 vPos = transform.position; //물체위치
 

@@ -58,12 +58,12 @@ public class Monster : MonoBehaviour {
           
 
         }
-      
+
         else if (collision.collider.tag == "Wall")
         {
 
             monster.isKinematic = true;
-           
+
         }
         if (monster.isKinematic == true)
         {

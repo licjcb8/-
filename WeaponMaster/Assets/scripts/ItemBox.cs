@@ -7,7 +7,7 @@ public class ItemBox : MonoBehaviour {
 
     public void GiveItem(Player player)
     {
-        player.SetIventory(m_eItem);
+        player.SetInventory(m_eItem);
     }
 	// Use this for initialization
 	void Start () {
