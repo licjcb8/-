@@ -7,6 +7,9 @@ public class GUIManager : MonoBehaviour {
 
     public List<GameObject> m_listScene;
     public GUIInventory m_guiInventory;
+    ItemManager.eIngredient ingredient;
+    public NPC npc;
+    public Player player;
     public GUINPCInventory m_guiNPCInventory;
     public MouseClick NPC;
     public int Selection = 0;
@@ -49,6 +52,11 @@ public class GUIManager : MonoBehaviour {
                 NPCInventory.SetInventory(GameManager.GetInstance().m_cNPC);
                 break;
             case eSceneStatus.SELL:
+                GUIBag bag1 = m_listScene[(int)eSceneStatus.SELL].GetComponent<GUIBag>();
+                bag1.SetBag(GameManager.GetInstance().m_cPlayer);
+                GUINPCBag bag2 = m_listScene[(int)eSceneStatus.SELL].GetComponent<GUINPCBag>();
+                bag2.SetNPCBag(GameManager.GetInstance().m_cNPC);
+
                 break;
        
             case eSceneStatus.PLAY:
@@ -167,6 +175,22 @@ public class GUIManager : MonoBehaviour {
     public void GoBackShop()
     {
         Selection = 0;
+    }
+
+    public void InputItem()
+    {
+        ingredient = (ItemManager.eIngredient)GameManager.GetInstance().m_cItemManager.ingredientselect;
+        Ingredient cIngredient = GameManager.GetInstance().m_cItemManager.GetIngredient(ingredient);
+        npc.SetBag(ingredient);
+        player.DeleteBag(ingredient);
+    }
+
+    public void OutputItem()
+    {
+        ingredient = (ItemManager.eIngredient)GameManager.GetInstance().m_cItemManager.ingredientselect;
+        Ingredient cIngredient = GameManager.GetInstance().m_cItemManager.GetIngredient(ingredient);
+        npc.DeleteBag(ingredient);
+        player.SetIngredient(ingredient);
     }
 
 

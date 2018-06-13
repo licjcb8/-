@@ -65,6 +65,7 @@ public class ItemManager: MonoBehaviour {
     List<Item> m_listItems = new List<Item>();
     List<Ingredient> m_listIngredient = new List<Ingredient>();
     public int itemselect;
+    public int ingredientselect;
     // Use this for initialization
     void Start () {
         Initialize();

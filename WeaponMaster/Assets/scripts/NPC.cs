@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPC : MonoBehaviour {
 
     List<ItemManager.eItem> m_listInventory = new List<ItemManager.eItem>();
-
+    public List<ItemManager.eIngredient> m_listBag = new List<ItemManager.eIngredient>();
     // Use this for initialization
     public void SetIventory()
     {
@@ -14,6 +14,17 @@ public class NPC : MonoBehaviour {
         m_listInventory.Add(ItemManager.eItem.Bowgun);
         m_listInventory.Add(ItemManager.eItem.Potion);
     }
+
+    public void SetBag(ItemManager.eIngredient ingredient)
+    {
+        m_listBag.Add(ingredient);
+    }
+
+    public void DeleteBag(ItemManager.eIngredient ingredient)
+    {
+        m_listBag.Remove(ingredient);
+    }
+
     public ItemManager.eItem GetInventory(ItemManager.eItem item)
     {
         return m_listInventory.Find(obj => obj.Equals(item));
@@ -23,14 +34,32 @@ public class NPC : MonoBehaviour {
     {
         return m_listInventory[idx];
     }
+
     public void DeleteInvetory(ItemManager.eItem item)
     {
         m_listInventory.Remove(item);
     }
+
     public int GetInventorySize()
     {
         return m_listInventory.Count;
     }
+
+    public ItemManager.eIngredient GetBag(ItemManager.eIngredient ingredient)
+    {
+        return m_listBag.Find(obj => obj.Equals(ingredient));
+    }
+
+    public ItemManager.eIngredient GetBag(int idx)
+    {
+        return m_listBag[idx];
+    }
+
+    public int GetBagSize()
+    {
+        return m_listBag.Count;
+    }
+
     void Start () {
         SetIventory();
     }

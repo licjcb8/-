@@ -70,6 +70,8 @@ public class Player : MonoBehaviour {
         m_listIngredient.Add(ingredient);
     }
 
+  
+
     public void SetEquip()
     {
 

@@ -19,6 +19,7 @@ public class GUIBag : MonoBehaviour {
         m_cPanel.SetIngredient(ingredient);
     }
 
+  
     void Start () {
 		
 	}
