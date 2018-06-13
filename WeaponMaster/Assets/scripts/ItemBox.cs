@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemBox : MonoBehaviour {
-    public ItemManager.eItem m_eItem;
+    public ItemManager.eIngredient m_eIngredient;
 
     public void GiveItem(Player player)
     {
-        player.SetInventory(m_eItem);
+        player.SetIngredient(m_eIngredient);
     }
 	// Use this for initialization
 	void Start () {

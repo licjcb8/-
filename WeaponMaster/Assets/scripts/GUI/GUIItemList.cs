@@ -19,6 +19,17 @@ public class GUIItemList : MonoBehaviour {
         objButton.transform.SetParent(m_objContext.transform);
         m_listItemList.Add(objButton);
     }
+    public void AddIngredient(ItemManager.eIngredient ingredient, GUIPanel cPanel)
+    {
+        Ingredient cIngredient = GameManager.GetInstance().m_cItemManager.GetIngredient(ingredient);
+        GameObject objButton = Instantiate(m_prefabButton);
+        GUIItemButton cItemButton = objButton.GetComponent<GUIItemButton>();
+        Button btnButton = objButton.GetComponent<Button>();
+        btnButton.onClick.AddListener(() => cPanel.SetIngredient(ingredient));
+        cItemButton.m_cText.text = cIngredient.Name;
+        objButton.transform.SetParent(m_objContext.transform);
+        m_listItemList.Add(objButton);
+    }
 
     public void DeleteItem(int idx)
     {

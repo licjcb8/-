@@ -10,7 +10,7 @@ public class GUIManager : MonoBehaviour {
     public GUINPCInventory m_guiNPCInventory;
     public MouseClick NPC;
     public int Selection = 0;
-    public enum eSceneStatus {TITLE, GAMEOVER, THEEND, INVENTORY,STATUS,SHOP,BUY,SELL,PLAY, MAX};
+    public enum eSceneStatus {TITLE, GAMEOVER, THEEND, INVENTORY,STATUS,SHOP,BUY,SELL,PLAY, BAG,MAX};
     eSceneStatus m_eCurrentStatus;
 
     void SetInventory()
@@ -52,6 +52,10 @@ public class GUIManager : MonoBehaviour {
                 break;
        
             case eSceneStatus.PLAY:
+                break;
+            case eSceneStatus.BAG:
+                GUIBag bag = m_listScene[(int)eSceneStatus.BAG].GetComponent<GUIBag>();
+                bag.SetBag(GameManager.GetInstance().m_cPlayer);
                 break;
         }
         ShowScene(status);
@@ -116,12 +120,21 @@ public class GUIManager : MonoBehaviour {
                 {
                     SetStatus(GUIManager.eSceneStatus.STATUS);
                 }
+                else if (Input.GetKeyUp(KeyCode.O))
+                {
+                    SetStatus(GUIManager.eSceneStatus.BAG);
+                }
                 else if (NPC.A == 1)
                 {
                     SetStatus(GUIManager.eSceneStatus.SHOP);
-               
+
                 }
-            
+                break;
+            case eSceneStatus.BAG:
+                if (Input.GetKeyUp(KeyCode.O))
+                {
+                    SetStatus(GUIManager.eSceneStatus.PLAY);
+                }
                 break;
 
         }

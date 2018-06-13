@@ -27,6 +27,7 @@ public class Player : MonoBehaviour {
 
     List<ItemManager.eItem> m_listInventory = new List<ItemManager.eItem>();
     List<ItemManager.eItem> m_listEquipment = new List<ItemManager.eItem>();
+    public List<ItemManager.eIngredient> m_listIngredient = new List<ItemManager.eIngredient>();
     List<CharacterStatus> m_listStatus = new List<CharacterStatus>();
     public StatusBar Hpbar;
     public enum eStatus {  NONE = -1, DMG, HP, EXP, LV}
@@ -64,6 +65,11 @@ public class Player : MonoBehaviour {
         m_listInventory.Add(item);
     }
 
+    public void SetIngredient(ItemManager.eIngredient ingredient)
+    {
+        m_listIngredient.Add(ingredient);
+    }
+
     public void SetEquip()
     {
 
@@ -94,6 +100,10 @@ public class Player : MonoBehaviour {
         return m_listInventory.Find(obj => obj.Equals(item));
     }
 
+    public ItemManager.eIngredient GetBag(ItemManager.eIngredient ingredient)
+    {
+        return m_listIngredient.Find(obj => obj.Equals(ingredient));
+    }
     public ItemManager.eItem GetEquip(ItemManager.eItem item)
     {
         return m_listEquipment.Find(obj => obj.Equals(item));
@@ -103,14 +113,23 @@ public class Player : MonoBehaviour {
     {
         return m_listInventory[idx];
     }
+    public ItemManager.eIngredient GetBag(int idx)
+    {
+        return m_listIngredient[idx];
+    }
     public ItemManager.eItem GetEquip(int idx)
     {
         return m_listEquipment[idx];
     }
 
-    public void DeleteInvetory(ItemManager.eItem item)
+    public void DeleteInventory(ItemManager.eItem item)
     {
         m_listInventory.Remove(item);
+    }
+
+    public void DeleteBag(ItemManager.eIngredient ingredient)
+    {
+        m_listIngredient.Remove(ingredient);
     }
 
     public void DeleteEquip(ItemManager.eItem item)
@@ -120,6 +139,11 @@ public class Player : MonoBehaviour {
     public int GetInventorySize()
     {
         return m_listInventory.Count;
+    }
+
+    public int GetBagSize()
+    {
+        return m_listIngredient.Count;
     }
     public int GetEquipSize()
     {

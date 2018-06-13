@@ -18,6 +18,13 @@ public class GUIPanel : MonoBehaviour {
         GameManager.GetInstance().m_cItemManager.itemselect =(int)item ;
     }
 
+    public void SetIngredient(ItemManager.eIngredient ingredient)
+    {
+        Ingredient cIngredient = GameManager.GetInstance().m_cItemManager.GetIngredient(ingredient);
+        m_cImage.sprite = Resources.Load<Sprite>("Tex/" + cIngredient.Image);
+        m_cText.text = cIngredient.Comment;
+        
+    }
     private void OnGUI()
     {
         if (GUI.Button(new Rect(0, 40, 100, 20), "GUIPanel"))

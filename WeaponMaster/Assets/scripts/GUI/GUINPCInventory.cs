@@ -8,6 +8,7 @@ public class GUINPCInventory : MonoBehaviour {
     public GUIPanel m_cPanel;
     public Player player;
     ItemManager.eItem item;
+    public int Check = 0;
     
 
     public void SetInventory(NPC npc)
@@ -30,6 +31,14 @@ public class GUINPCInventory : MonoBehaviour {
          player.SetInventory(item);
     }
 
+    public void CheckIngredient()
+    {
+        item = (ItemManager.eItem)GameManager.GetInstance().m_cItemManager.itemselect;
+        Item cItem = GameManager.GetInstance().m_cItemManager.GetItem(item);
+        for (int i = 0; i < cItem.m_needBag.Count; i++)
+        { }
+
+    }
   
     // Use this for initialization
     void Start()
