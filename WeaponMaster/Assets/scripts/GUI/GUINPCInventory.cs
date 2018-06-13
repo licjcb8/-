@@ -27,7 +27,7 @@ public class GUINPCInventory : MonoBehaviour {
     {
         item = (ItemManager.eItem)GameManager.GetInstance().m_cItemManager.itemselect;
         Item cItem = GameManager.GetInstance().m_cItemManager.GetItem(item);
-         player.SetIventory(item);
+         player.SetInventory(item);
     }
 
   
