@@ -244,6 +244,7 @@
     <Compile Include="Assets\scripts\FireCtrl.cs" />
     <Compile Include="Assets\scripts\GameManager.cs" />
     <Compile Include="Assets\scripts\GUI\GUIBag.cs" />
+    <Compile Include="Assets\scripts\GUI\GUICombination.cs" />
     <Compile Include="Assets\scripts\GUI\GUIEquipment.cs" />
     <Compile Include="Assets\scripts\GUI\GUIInventory.cs" />
     <Compile Include="Assets\scripts\GUI\GUIItemButton.cs" />

@@ -31,6 +31,18 @@ public class GUIItemList : MonoBehaviour {
         m_listItemList.Add(objButton);
     }
 
+    public void AddCombination(ItemManager.eItem item, GUIPanel cPanel)
+    {
+        Item cItem = GameManager.GetInstance().m_cItemManager.GetItem(item);
+        GameObject objButton = Instantiate(m_prefabButton);
+        GUIItemButton cItemButton = objButton.GetComponent<GUIItemButton>();
+        Button btnButton = objButton.GetComponent<Button>();
+        btnButton.onClick.AddListener(() => cPanel.SetCombination(item));
+        cItemButton.m_cText.text = cItem.Name;
+        objButton.transform.SetParent(m_objContext.transform);
+        m_listItemList.Add(objButton);
+    }
+
     public void DeleteItem(int idx)
     {
         GameObject button = m_listItemList[idx];

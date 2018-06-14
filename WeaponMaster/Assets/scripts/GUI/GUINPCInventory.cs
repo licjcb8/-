@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 public class GUINPCInventory : MonoBehaviour {
@@ -9,13 +10,13 @@ public class GUINPCInventory : MonoBehaviour {
     public Player player;
     ItemManager.eItem item;
     public int Check = 0;
-    
+
 
     public void SetInventory(NPC npc)
     {
         m_cItemList.ReleaseItems();
         for (int i = 0; i < npc.GetInventorySize(); i++)
-            m_cItemList.AddItem(npc.GetInventory(i), m_cPanel);
+            m_cItemList.AddCombination(npc.GetInventory(i), m_cPanel);
         m_cItemList.SetContextSize();
     }
 
@@ -24,10 +25,13 @@ public class GUINPCInventory : MonoBehaviour {
         m_cPanel.Set(item);
     }
 
-    public void BuyItem ()
+    public void CombinateItem ()
     {
         item = (ItemManager.eItem)GameManager.GetInstance().m_cItemManager.itemselect;
         Item cItem = GameManager.GetInstance().m_cItemManager.GetItem(item);
+        GameManager.GetInstance().m_cNPC.m_listBag.Sort();
+        cItem.m_needBag.Sort();
+        
          player.SetInventory(item);
     }
 

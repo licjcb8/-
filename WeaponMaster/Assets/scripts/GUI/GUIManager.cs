@@ -56,7 +56,8 @@ public class GUIManager : MonoBehaviour {
                 bag1.SetBag(GameManager.GetInstance().m_cPlayer);
                 GUINPCBag bag2 = m_listScene[(int)eSceneStatus.SELL].GetComponent<GUINPCBag>();
                 bag2.SetNPCBag(GameManager.GetInstance().m_cNPC);
-
+                GUINPCInventory NPCInventory2 = m_listScene[(int)eSceneStatus.SELL].GetComponent<GUINPCInventory>();
+                NPCInventory2.SetInventory(GameManager.GetInstance().m_cNPC);
                 break;
        
             case eSceneStatus.PLAY:
