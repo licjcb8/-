@@ -10,7 +10,7 @@ public class GUINPCInventory : MonoBehaviour {
     public Player player;
     ItemManager.eItem item;
     public int Check = 0;
-
+    bool equalornot = false;
 
     public void SetInventory(NPC npc)
     {
@@ -25,15 +25,7 @@ public class GUINPCInventory : MonoBehaviour {
         m_cPanel.Set(item);
     }
 
-    public void CombinateItem ()
-    {
-        item = (ItemManager.eItem)GameManager.GetInstance().m_cItemManager.itemselect;
-        Item cItem = GameManager.GetInstance().m_cItemManager.GetItem(item);
-        GameManager.GetInstance().m_cNPC.m_listBag.Sort();
-        cItem.m_needBag.Sort();
-        
-         player.SetInventory(item);
-    }
+   
 
     public void CheckIngredient()
     {

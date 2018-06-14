@@ -60,11 +60,13 @@
      <Compile Include="Assets\scripts\FireCtrl.cs" />
      <Compile Include="Assets\scripts\GameManager.cs" />
      <Compile Include="Assets\scripts\GUI\GUIBag.cs" />
+     <Compile Include="Assets\scripts\GUI\GUICombination.cs" />
      <Compile Include="Assets\scripts\GUI\GUIEquipment.cs" />
      <Compile Include="Assets\scripts\GUI\GUIInventory.cs" />
      <Compile Include="Assets\scripts\GUI\GUIItemButton.cs" />
      <Compile Include="Assets\scripts\GUI\GUIItemList.cs" />
      <Compile Include="Assets\scripts\GUI\GUIManager.cs" />
+     <Compile Include="Assets\scripts\GUI\GUINPCBag.cs" />
      <Compile Include="Assets\scripts\GUI\GUINPCInventory.cs" />
      <Compile Include="Assets\scripts\GUI\GUIPanel.cs" />
      <Compile Include="Assets\scripts\GUI\GUIStatus.cs" />

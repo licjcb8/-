@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Linq;
 public class GUIManager : MonoBehaviour {
 
     public List<GameObject> m_listScene;
+  
     public GUIInventory m_guiInventory;
     ItemManager.eIngredient ingredient;
     public NPC npc;
@@ -15,7 +16,8 @@ public class GUIManager : MonoBehaviour {
     public int Selection = 0;
     public enum eSceneStatus {TITLE, GAMEOVER, THEEND, INVENTORY,STATUS,SHOP,BUY,SELL,PLAY, BAG,MAX};
     eSceneStatus m_eCurrentStatus;
-
+    ItemManager.eItem item;
+    
     void SetInventory()
     {
         if (!m_guiInventory.gameObject.activeSelf)
@@ -184,6 +186,7 @@ public class GUIManager : MonoBehaviour {
         Ingredient cIngredient = GameManager.GetInstance().m_cItemManager.GetIngredient(ingredient);
         npc.SetBag(ingredient);
         player.DeleteBag(ingredient);
+        SetStatus(eSceneStatus.SELL);
     }
 
     public void OutputItem()
@@ -192,11 +195,23 @@ public class GUIManager : MonoBehaviour {
         Ingredient cIngredient = GameManager.GetInstance().m_cItemManager.GetIngredient(ingredient);
         npc.DeleteBag(ingredient);
         player.SetIngredient(ingredient);
+        SetStatus(eSceneStatus.SELL);
     }
 
+    public void CombinateItem()
+    {
+        item = (ItemManager.eItem)GameManager.GetInstance().m_cItemManager.itemselect;
+        Item cItem = GameManager.GetInstance().m_cItemManager.GetItem(item);
+       
+        //GameManager.GetInstance().m_cNPC.m_listBag.Sort();
+        //GameManager.GetInstance().m_cItemManager.m_listItems[GameManager.GetInstance().m_cItemManager.itemselect].m_needBag.Sort();
+        //if (GameManager.GetInstance().m_cNPC.m_listBag.Contains(GameManager.GetInstance().m_cItemManager.m_listItems[GameManager.GetInstance().m_cItemManager.itemselect].m_needBag))
+        //{ player.SetInventory(item); }
+
+    }
 
     // Use this for initialization
-	void Start () {
+    void Start () {
 		
 	}
 	

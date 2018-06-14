@@ -66,7 +66,7 @@ public class Ingredient
 public class ItemManager: MonoBehaviour {
     public enum eItem { NONE= -1, ShortSword, Shield, Bowgun,Potion,Setting}
     public enum eIngredient { NONE=-1, Slime, Skeleton}
-    List<Item> m_listItems = new List<Item>();
+   public  List<Item> m_listItems = new List<Item>();
     List<Ingredient> m_listIngredient = new List<Ingredient>();
     public int itemselect;
     public int ingredientselect;
