@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 
 
@@ -11,7 +12,7 @@ public class GameManager : MonoBehaviour {
     public ItemManager m_cItemManager;
     public GUIManager m_cGUIManager;
     public GUIManager.eSceneStatus m_eSceneStatus;
-   
+    
 
     static GameManager m_cInstance;
     static public GameManager GetInstance()

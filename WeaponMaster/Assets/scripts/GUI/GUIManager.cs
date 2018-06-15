@@ -198,17 +198,7 @@ public class GUIManager : MonoBehaviour {
         SetStatus(eSceneStatus.SELL);
     }
 
-    public void CombinateItem()
-    {
-        item = (ItemManager.eItem)GameManager.GetInstance().m_cItemManager.itemselect;
-        Item cItem = GameManager.GetInstance().m_cItemManager.GetItem(item);
-       
-        //GameManager.GetInstance().m_cNPC.m_listBag.Sort();
-        //GameManager.GetInstance().m_cItemManager.m_listItems[GameManager.GetInstance().m_cItemManager.itemselect].m_needBag.Sort();
-        //if (GameManager.GetInstance().m_cNPC.m_listBag.Contains(GameManager.GetInstance().m_cItemManager.m_listItems[GameManager.GetInstance().m_cItemManager.itemselect].m_needBag))
-        //{ player.SetInventory(item); }
-
-    }
+  
 
     // Use this for initialization
     void Start () {

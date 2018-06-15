@@ -6,6 +6,7 @@ public class NPC : MonoBehaviour {
 
     List<ItemManager.eItem> m_listInventory = new List<ItemManager.eItem>();
     public List<ItemManager.eIngredient> m_listBag = new List<ItemManager.eIngredient>();
+    ItemManager.eIngredient ingredient;
     // Use this for initialization
     public void SetIventory()
     {
