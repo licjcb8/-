@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Item
 {
-    public List<Ingredient> m_needBag;
+    public List<ItemManager.eIngredient> m_needBag;
     string strName;
     string strComment;
     string strCombination;
@@ -103,14 +103,14 @@ public class ItemManager: MonoBehaviour {
     }
     public void Setneedbag()
     {
-        m_listItems[0].m_needBag.Add(new Ingredient("슬라임액체", "슬라임을 잡다보면 획득할 수 있다, 잡템", "Slime", 60));
-        m_listItems[0].m_needBag.Add(new Ingredient("슬라임액체", "슬라임을 잡다보면 획득할 수 있다, 잡템", "Slime", 60));
-        m_listItems[1].m_needBag.Add(new Ingredient("슬라임액체", "슬라임을 잡다보면 획득할 수 있다, 잡템", "Slime", 60));
-        m_listItems[1].m_needBag.Add(new Ingredient("슬라임액체", "슬라임을 잡다보면 획득할 수 있다, 잡템", "Slime", 60));
-        m_listItems[1].m_needBag.Add(new Ingredient("스켈레톤의 골반뼈", "스켈레톤의 부러진 골반뼈인 듯 하다, 잡템", "Skeleton", 60));
-        m_listItems[2].m_needBag.Add(new Ingredient("슬라임액체", "슬라임을 잡다보면 획득할 수 있다, 잡템", "Slime", 60));
-        m_listItems[2].m_needBag.Add(new Ingredient("스켈레톤의 골반뼈", "스켈레톤의 부러진 골반뼈인 듯 하다, 잡템", "Skeleton", 60));
-        m_listItems[2].m_needBag.Add(new Ingredient("스켈레톤의 골반뼈", "스켈레톤의 부러진 골반뼈인 듯 하다, 잡템", "Skeleton", 60));
+        m_listItems[0].m_needBag.Add(eIngredient.Slime);
+        m_listItems[0].m_needBag.Add(eIngredient.Slime);
+        m_listItems[1].m_needBag.Add(eIngredient.Slime);
+        m_listItems[1].m_needBag.Add(eIngredient.Slime);
+        m_listItems[1].m_needBag.Add(eIngredient.Skeleton);
+        m_listItems[2].m_needBag.Add(eIngredient.Slime);
+        m_listItems[2].m_needBag.Add(eIngredient.Skeleton);
+        m_listItems[2].m_needBag.Add(eIngredient.Skeleton);
     }
     private void OnGUI()
     {

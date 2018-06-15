@@ -13,7 +13,7 @@ public class GUINPCInventory : MonoBehaviour {
     ItemManager.eItem item;
     ItemManager.eIngredient ingredient;
     public int Check = 0;
-  public int equalornot =0;
+  public int equalornot =1;
 
     public void SetInventory(NPC npc)
     {
@@ -28,7 +28,12 @@ public class GUINPCInventory : MonoBehaviour {
         m_cPanel.Set(item);
     }
 
-   
+    public void BuyItem()
+    {
+        item = (ItemManager.eItem)GameManager.GetInstance().m_cItemManager.itemselect;
+        Item cItem = GameManager.GetInstance().m_cItemManager.GetItem(item);
+        player.SetInventory(item);
+    }
 
     
 
@@ -36,20 +41,34 @@ public class GUINPCInventory : MonoBehaviour {
     {
         item = (ItemManager.eItem)GameManager.GetInstance().m_cItemManager.itemselect;
         Item cItem = GameManager.GetInstance().m_cItemManager.GetItem(item);
-        GameManager.GetInstance().m_cNPC.m_listBag.Sort();
-        cItem.m_needBag.Sort();
-        if (cItem.m_needBag.Count != GameManager.GetInstance().m_cNPC.m_listBag.Count)
+        //GameManager.GetInstance().m_cNPC.m_listBag.Sort();
+        //cItem.m_needBag.Sort();
+        if (GameManager.GetInstance().m_cItemManager.GetItem(item).m_needBag.Count != GameManager.GetInstance().m_cNPC.m_listBag.Count)
         {
             equalornot = 0;
         }
-        for (int i = 0; i < cItem.m_needBag.Count; i++)
+        for (int i = 0; i < GameManager.GetInstance().m_cItemManager.GetItem(item).m_needBag.Count; i++)
         {
-          
-            //if (cItem.m_needBag[i].Name != GameManager.GetInstance().m_cNPC.GetBag(i).Name)
+            ingredient = (ItemManager.eIngredient)i;
+            if (GameManager.GetInstance().m_cItemManager.GetItem(item).m_needBag[i] != GameManager.GetInstance().m_cNPC.m_listBag[i])
+            {
+                equalornot = 0;
+            }
         }
+        if (equalornot == 1)
+        {
+            player.SetInventory(item);
 
-
-        //{ player.SetInventory(item); }
+        }
+        //var firstNotSecond = GameManager.GetInstance().m_cItemManager.GetItem(item).m_needBag.Except(GameManager.GetInstance().m_cNPC.m_listBag).ToList();
+        //var secondNotFirst = GameManager.GetInstance().m_cNPC.m_listBag.Except(GameManager.GetInstance().m_cItemManager.GetItem(item).m_needBag).ToList();
+        ////!firstNotSecond.Any() && !secondNotFirst.Any()
+        //if (!firstNotSecond.Any() && !secondNotFirst.Any())
+        //{
+        //    player.SetInventory(item);
+        //}
+        
+        //{ }
 
     }
 
