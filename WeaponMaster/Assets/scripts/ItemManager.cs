@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Item
 {
-    public List<ItemManager.eIngredient> m_needBag;
+    public List<ItemManager.eIngredient> m_needBag = new List<ItemManager.eIngredient>();
     string strName;
     string strComment;
     string strCombination;
@@ -73,6 +73,7 @@ public class ItemManager: MonoBehaviour {
     // Use this for initialization
     void Start () {
         Initialize();
+        Setneedbag();
 	}
 	
 	// Update is called once per frame
