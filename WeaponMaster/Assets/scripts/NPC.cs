@@ -56,6 +56,15 @@ public class NPC : MonoBehaviour {
         return m_listBag[idx];
     }
 
+    public void ReleaseItems()
+    {
+        for (int i = m_listBag.Count - 1; i >= 0; i--)
+        {
+            m_listBag.Remove(m_listBag[i]);
+            m_listBag.Clear();
+        }
+    }
+
     public int GetBagSize()
     {
         return m_listBag.Count;

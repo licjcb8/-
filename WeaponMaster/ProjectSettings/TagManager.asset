@@ -8,6 +8,7 @@ TagManager:
   - HPReset
   - Wall
   - Bullet
+  - MonsterBullet
   layers:
   - Default
   - TransparentFX

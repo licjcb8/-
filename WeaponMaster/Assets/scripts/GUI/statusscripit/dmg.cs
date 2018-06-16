@@ -16,7 +16,7 @@ public class dmg : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        DMGText.text = "DMG : " +player.dmg;
+        DMGText.text = "DMG : " +player.atk;
       
    
     }

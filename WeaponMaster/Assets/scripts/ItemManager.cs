@@ -78,13 +78,13 @@ public class ItemManager: MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+	
 	}
 
     public void Initialize()
     {
         m_listItems.Add(new Item("숏소드", "매우 허접한 숏소드, 공격력 +10","슬라임액체x2", "ShortSword",10,"atk"));
-        m_listItems.Add(new Item("쉴드", "매우 허접한 쉴드, 방어력 +10","슬라임액체x2, 스켈레톤의 골반뼈x1", "Shield",10,"def"));
+        m_listItems.Add(new Item("쉴드", "매우 허접한 쉴드, 방어력 +10","슬라임액체x2, 스켈레톤의 골반뼈x1", "Shield",2,"def"));
         m_listItems.Add(new Item("보우건", "매우 허접한 보우건, 공격럭 +10","슬라임액체x1, 스켈레톤의 골반뼈x2", "Bowgun", 10, "atk"));
         m_listItems.Add(new Item("포션", "빨간포션, 체력 +20","없음", "Potion",10,"hp"));
         m_listItems.Add(new Item("없음", "없음","없음", "Slime",0, "etc"));
