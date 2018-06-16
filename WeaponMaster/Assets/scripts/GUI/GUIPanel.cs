@@ -31,6 +31,7 @@ public class GUIPanel : MonoBehaviour {
 
         Item cItem = GameManager.GetInstance().m_cItemManager.GetItem(item);
         m_cText.text = cItem.Combination;
+        GameManager.GetInstance().m_cItemManager.itemselect = (int)item;
     }
 
 

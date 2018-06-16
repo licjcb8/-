@@ -5,6 +5,8 @@ using UnityEngine;
 public class FireCtrl : MonoBehaviour {
     public GameObject bullet;
     public Transform firePos;
+    public float fireRate;
+    public float delay;
 	// Use this for initialization
 	void Start () {
        
@@ -18,7 +20,8 @@ public class FireCtrl : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.Z))
             {
-                Fire();
+                InvokeRepeating("Fire", delay, fireRate);
+               // Fire();
             }
         }
     }
