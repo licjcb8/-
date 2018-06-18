@@ -5,9 +5,18 @@ using UnityEngine;
 
 public class ItemBox : MonoBehaviour {
     public ItemManager.eIngredient m_eIngredient;
+    public int Rndrop;
+    public bool Drop = false;
     public void GiveItem(Player player)
     {
-        player.SetIngredient(m_eIngredient);
+        Rndrop = Random.Range(0, 100);
+        for (int i = 0; i < GameManager.GetInstance().m_cItemManager.GetIngredient(m_eIngredient).Percent; i++)
+        {
+            if (i == Rndrop)
+                Drop = true;
+        }
+        if (Drop)
+        { player.SetIngredient(m_eIngredient); }
     }
 
 	// Use this for initialization

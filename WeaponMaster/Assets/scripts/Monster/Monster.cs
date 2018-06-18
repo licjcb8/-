@@ -91,8 +91,8 @@ public class Monster : MonoBehaviour {
             monster.isKinematic = true;
         }
         else if (collision.collider.tag == "Monster")
-        {
-            monster.isKinematic = true;
+        { 
+            hit = 1;
         }
 
     }
