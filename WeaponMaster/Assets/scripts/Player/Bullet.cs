@@ -39,7 +39,7 @@ public class Bullet : MonoBehaviour {
             Rigidbody rigidbodyTarget = other.gameObject.GetComponent<Rigidbody>();
             other.gameObject.GetComponent<Monster>().hp = other.gameObject.GetComponent<Monster>().hp - bulletdmg;
             other.gameObject.GetComponent<Monster>().hit = 1;
-            rigidbodyTarget.AddForce(transform.forward * speed);
+            rigidbodyTarget.AddForce(transform.forward * (speed-500));
             Destroy(gameObject);
             
         }
