@@ -186,7 +186,7 @@ public class Player : MonoBehaviour {
         {
             hp = hpmax;
         }
-        Hpbar.Set(hp, hpmax);
+       
 
 
     }
@@ -204,6 +204,7 @@ public class Player : MonoBehaviour {
             hpmax = hpmax + 50;
             hp = hpmax;
         }
+        Hpbar.Set(hp, hpmax);
     }
 
    public void SetWeapon(int i)

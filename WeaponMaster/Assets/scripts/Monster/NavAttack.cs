@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class NavAttack : MonoBehaviour {
     public Transform m_Target;
-
     public float m_fMinDist = 5;
     NavMeshAgent m_cNavMeshAgent;
     float m_fDist = 0;
@@ -50,6 +49,7 @@ public class NavAttack : MonoBehaviour {
 
         if (m_fDist > m_fMinDist) 
             m_cNavMeshAgent.SetDestination(vTargetPos);
+ 
     }
 
     private void OnGUI()

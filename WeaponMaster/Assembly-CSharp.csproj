@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\MonsterAsset\Mushroom_Monster\Script\MushroomMon_Ani_Test.cs" />
      <Compile Include="Assets\scripts\BillBoard.cs" />
      <Compile Include="Assets\scripts\GameManager.cs" />
      <Compile Include="Assets\scripts\GUI\GUIBag.cs" />
@@ -78,6 +79,7 @@
      <Compile Include="Assets\scripts\Monster\MonsterBullet.cs" />
      <Compile Include="Assets\scripts\Monster\NavAttack.cs" />
      <Compile Include="Assets\scripts\Monster\NavTracing.cs" />
+     <Compile Include="Assets\scripts\Monster\SkeletonController.cs" />
      <Compile Include="Assets\scripts\NPC.cs" />
      <Compile Include="Assets\scripts\Player\Bullet.cs" />
      <Compile Include="Assets\scripts\Player\CharacterAnimator.cs" />
