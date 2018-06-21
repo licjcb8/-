@@ -22,11 +22,13 @@ public class Monster : MonoBehaviour {
     public int Resetdone = 0;
     public float Reset = 0.2f;
     public int hit = 0;
-   
+
+    public Anims anims;
+ 
 
     // Use this for initialization
     void Start () {
-		
+      
 	}
 	
 	// Update is called once per frame
@@ -57,6 +59,13 @@ public class Monster : MonoBehaviour {
             isDie = true;
         }
         Dead();
+
+        float v = Input.GetAxis("Vertical");
+        if (v >= 0.1)
+        {
+            
+        }
+      
     }
     void Dead()
     {
@@ -84,6 +93,7 @@ public class Monster : MonoBehaviour {
             }
             hp = hp -dmg;
             hit = 1;
+            anims.isDamaged = true;
         }
 
         else if (collision.collider.tag == "Wall")

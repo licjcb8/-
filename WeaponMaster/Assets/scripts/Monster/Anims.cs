@@ -2,25 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletonController : MonoBehaviour {
+public class Anims : MonoBehaviour {
     Animator animator;
-
     float moveHorizontal;
     float moveVertical;
-    bool isRunning = false;
-    // Use this for initialization
+    public bool isRunning = false;
+    public bool isDamaged = false;
 
+
+    // Use this for initialization
     void Awake()
     {
         animator = GetComponent<Animator>();
     }
-	void Start () {
+
+
+    void Start () {
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
         moveVertical = Input.GetAxis("Vertical");
+        moveHorizontal = Input.GetAxis("Horizontal");
+
         if (moveVertical != 0)
         {
             isRunning = true;
@@ -29,8 +34,8 @@ public class SkeletonController : MonoBehaviour {
         {
             isRunning = false;
         }
+        AnimationUpdate();
 	}
-
     void AnimationUpdate()
     {
         if (isRunning == true)
@@ -41,6 +46,16 @@ public class SkeletonController : MonoBehaviour {
         {
             animator.SetBool("isRunning", false);
         }
+
+        if (isDamaged == true)
+        {
+            animator.SetBool("isDamaged", true);
+        }
+        else
+        {
+            animator.SetBool("isDamaged", false);
+        }
     }
+   
 
 }
