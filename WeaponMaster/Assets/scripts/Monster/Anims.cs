@@ -26,7 +26,7 @@ public class Anims : MonoBehaviour {
         moveVertical = Input.GetAxis("Vertical");
         moveHorizontal = Input.GetAxis("Horizontal");
 
-        if (moveVertical != 0)
+        if (moveVertical != 0 || moveHorizontal !=0)
         {
             isRunning = true;
         }
@@ -56,6 +56,21 @@ public class Anims : MonoBehaviour {
             animator.SetBool("isDamaged", false);
         }
     }
-   
+
+    public void OncollisionEnter(Collision collision)
+    {
+        GameObject objTarget = collision.gameObject;
+        Rigidbody rigidbodyTarget = collision.gameObject.GetComponent<Rigidbody>();
+
+        if (collision.collider.tag == "Player")
+        {
+            isDamaged = true;
+            animator.SetBool("isDamaged", true);
+        }
+        //else
+        //{
+        //    isDamaged = false;
+        //}
+    }
 
 }

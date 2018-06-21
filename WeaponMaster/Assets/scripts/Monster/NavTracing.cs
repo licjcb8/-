@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -8,7 +9,7 @@ public class NavTracing : MonoBehaviour {
 
     public float m_fMinDist = 5; 
     NavMeshAgent m_cNavMeshAgent;
-    float m_fDist = 0; 
+    public float m_fDist = 0; 
 
 	// Use this for initialization
 	void Start () {

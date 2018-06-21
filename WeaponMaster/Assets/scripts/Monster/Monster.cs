@@ -23,8 +23,6 @@ public class Monster : MonoBehaviour {
     public float Reset = 0.2f;
     public int hit = 0;
 
-    public Anims anims;
- 
 
     // Use this for initialization
     void Start () {
@@ -93,7 +91,7 @@ public class Monster : MonoBehaviour {
             }
             hp = hp -dmg;
             hit = 1;
-            anims.isDamaged = true;
+           
         }
 
         else if (collision.collider.tag == "Wall")

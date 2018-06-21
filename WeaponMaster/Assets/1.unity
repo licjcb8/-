@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2758,7 +2758,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 362312851}
-  - component: {fileID: 362312852}
   m_Layer: 0
   m_Name: MushroomMon
   m_TagString: Untagged
@@ -2782,26 +2781,6 @@ Transform:
   m_Father: {fileID: 796009231}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &362312852
-Animation:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 111201453842844584, guid: 65ee11f14fb92f54497d7f84e2fd7b62,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 362312850}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 10a1e47d0d282414481a0b2a67c79333, type: 3}
-  m_Animations:
-  - {fileID: 7400000, guid: 10a1e47d0d282414481a0b2a67c79333, type: 3}
-  - {fileID: 7400002, guid: 10a1e47d0d282414481a0b2a67c79333, type: 3}
-  - {fileID: 7400004, guid: 10a1e47d0d282414481a0b2a67c79333, type: 3}
-  - {fileID: 7400006, guid: 10a1e47d0d282414481a0b2a67c79333, type: 3}
-  - {fileID: 7400008, guid: 10a1e47d0d282414481a0b2a67c79333, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 1
 --- !u!1 &366150849
 GameObject:
   m_ObjectHideFlags: 0
@@ -6199,7 +6178,6 @@ GameObject:
   - component: {fileID: 796009230}
   - component: {fileID: 796009229}
   - component: {fileID: 796009228}
-  - component: {fileID: 796009227}
   - component: {fileID: 796009226}
   - component: {fileID: 796009225}
   - component: {fileID: 796009224}
@@ -6212,23 +6190,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &796009222
-Animator:
-  serializedVersion: 3
+--- !u!111 &796009222
+Animation:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 796009221}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8d0d9bcac086c4747ac55eb3849dd4c0, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 0e92216e76934164ebc2ff6dcb6caa6a, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 0e92216e76934164ebc2ff6dcb6caa6a, type: 2}
+  - {fileID: 7400004, guid: 10a1e47d0d282414481a0b2a67c79333, type: 3}
+  - {fileID: 7400006, guid: 10a1e47d0d282414481a0b2a67c79333, type: 3}
+  - {fileID: 7400000, guid: 0b8e59d3be9956c4da74701ae1064262, type: 2}
+  - {fileID: 7400008, guid: 10a1e47d0d282414481a0b2a67c79333, type: 3}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!65 &796009223
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6278,6 +6258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Target: {fileID: 776538546}
   m_fMinDist: 5
+  m_fDist: 0
 --- !u!114 &796009226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6293,19 +6274,6 @@ MonoBehaviour:
   m_eIngredient: 0
   Rndrop: 0
   Drop: 0
---- !u!114 &796009227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 796009221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8c47bb8e5e819b41a1ef90ab992cf82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isRunning: 0
-  isDamaged: 0
 --- !u!114 &796009228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6320,7 +6288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itembox: {fileID: 796009226}
   Hpbar: {fileID: 500785328}
-  RsMonster: {fileID: 1255196409423842, guid: 65ee11f14fb92f54497d7f84e2fd7b62, type: 2}
+  RsMonster: {fileID: 1148687122730044, guid: 65ee11f14fb92f54497d7f84e2fd7b62, type: 2}
   RsPos: {fileID: 1752405719}
   atk: 10
   def: 2
@@ -6337,7 +6305,6 @@ MonoBehaviour:
   Resetdone: 0
   Reset: 1
   hit: 0
-  anims: {fileID: 796009227}
 --- !u!54 &796009229
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6863,7 +6830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &974006032
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13247,7 +13214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itembox: {fileID: 1723727777}
   Hpbar: {fileID: 205337866}
-  RsMonster: {fileID: 1476219535357294, guid: a85d4b6bd3e00aa4ba423470d44c2b93, type: 2}
+  RsMonster: {fileID: 1463300064155984, guid: a85d4b6bd3e00aa4ba423470d44c2b93, type: 2}
   RsPos: {fileID: 380865838}
   atk: 20
   def: 2
@@ -13264,7 +13231,6 @@ MonoBehaviour:
   Resetdone: 0
   Reset: 0.2
   hit: 0
-  anims: {fileID: 1723727778}
 --- !u!114 &1723727780
 MonoBehaviour:
   m_ObjectHideFlags: 0
