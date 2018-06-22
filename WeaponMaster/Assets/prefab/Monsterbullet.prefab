@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a77e078972515fa47982a93e565061f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monster: {fileID: 114783980320074268, guid: a85d4b6bd3e00aa4ba423470d44c2b93, type: 2}
+  monster: {fileID: 114983735600793330, guid: a85d4b6bd3e00aa4ba423470d44c2b93, type: 2}
   bulletdmg: 20
   speed: 800
 --- !u!135 &135627137028600704

@@ -31,7 +31,7 @@ public class NavTracing : MonoBehaviour {
 
         m_fDist = Vector3.Distance(vTargetPos, vPos);
 
-        if (m_fDist > m_fMinDist) 
+        if (m_fDist < m_fMinDist) 
             m_cNavMeshAgent.SetDestination(vTargetPos);
     }
 

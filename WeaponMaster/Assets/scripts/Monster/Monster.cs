@@ -84,12 +84,12 @@ public class Monster : MonoBehaviour {
         if (collision.collider.tag == "Player")
         {
             rigidbodyTarget.AddForce(transform.forward * m_fPower * m_fSpeed);
-            dmg = collision.gameObject.GetComponent<Player>().atk - def;
-            if (dmg <= 0)
-            {
-                dmg = 0;
-            }
-            hp = hp -dmg;
+            //dmg = collision.gameObject.GetComponent<Player>().atk - def;
+            //if (dmg <= 0)
+            //{
+            //    dmg = 0;
+            //}
+            //hp = hp - dmg;
             hit = 1;
            
         }

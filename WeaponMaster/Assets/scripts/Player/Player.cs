@@ -43,6 +43,16 @@ public class Player : MonoBehaviour {
     public int Weapon = 0;
     public int itemselect;
     public GameObject mainCamera;
+    public float m_fMinDist = 3;
+    public float m_fDist1 = 0;
+    public float m_fDist2 = 0;
+    public Transform m_Target1;
+    public Transform m_Target2;
+    public float accumulator = 0.0f;
+    public int cooltimedone = 0;
+    public float cooltime = 0.5f;
+
+
     public void Initialize()
     {
         m_listStatus.Add(new CharacterStatus("데미지", 20));
@@ -193,22 +203,71 @@ public class Player : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        
+
+        if (cooltimedone == 0)
+        {
+            accumulator += Time.deltaTime;
+            if (accumulator >= cooltime)
+            {
+                cooltimedone = 1;
+                accumulator = 0.0f;
+            }
+        }
+        if (cooltimedone == 1)
+        {
+            AttackMonster();
+        }
         if (exp == 100)
         {
-            exp = 0;
-            lv++;
-            Debug.Log("Level up!");
-            atk = atk + 10;
-            def = def + 2;
-            hpmax = hpmax + 50;
-            hp = hpmax;
+            LVUP();
         }
         Hpbar.Set(hp, hpmax);
-    }
 
+
+    }
+    public void LVUP()
+    {
+        exp = 0;
+        lv++;
+        Debug.Log("Level up!");
+        atk = atk + 10;
+        def = def + 2;
+        hpmax = hpmax + 50;
+        hp = hpmax;
+    }
    public void SetWeapon(int i)
     {
         Weapon = i;
     }
+    public void AttackMonster()
+    {
+        m_Target1 =GameManager.GetInstance().monster.transform;
+        Vector3 vTargetPos1 = m_Target1.position;
+        Vector3 vPos1 = transform.position;
+
+        m_Target2 = GameManager.GetInstance().boss.transform;
+        Vector3 vTargetPos2 = m_Target2.position;        Vector3 vPos2 = transform.position;
+
+        m_fDist1 = Vector3.Distance(vTargetPos1, vPos1);
+        m_fDist2 = Vector3.Distance(vTargetPos2, vPos2);
+        if (Input.GetKeyUp(KeyCode.Z)) ;
+        {
+            if (cooltimedone == 1)
+            {
+                if (m_fDist1 < m_fMinDist)
+                {
+                    GameManager.GetInstance().monster.hp = GameManager.GetInstance().monster.hp - dmg;
+                    cooltimedone = 0;
+                }
+                else if (m_fDist2 < m_fMinDist)
+                {
+                    GameManager.GetInstance().boss.hp = GameManager.GetInstance().boss.hp - dmg;
+                    cooltimedone = 0;
+                }
+
+            }
+        }
+
+    }
+
 }

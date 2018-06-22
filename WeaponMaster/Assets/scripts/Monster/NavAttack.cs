@@ -23,7 +23,6 @@ public class NavAttack : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        TracingTarget();
         if (cooltimedone == 0)
         {
             accumulator += Time.deltaTime;
@@ -33,10 +32,9 @@ public class NavAttack : MonoBehaviour {
                 accumulator = 0.0f;
             }
         }
-          if (cooltimedone == 1)
-            {
-              Fire();
-            }
+        TracingTarget();
+      
+       
     }
 
     void TracingTarget()
@@ -47,8 +45,14 @@ public class NavAttack : MonoBehaviour {
 
         m_fDist = Vector3.Distance(vTargetPos, vPos);
 
-        if (m_fDist > m_fMinDist) 
+        if (m_fDist < m_fMinDist)
+        {
             m_cNavMeshAgent.SetDestination(vTargetPos);
+            if (cooltimedone == 1)
+            {
+                Fire();
+            }
+        }
  
     }
 
