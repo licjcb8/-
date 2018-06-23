@@ -250,7 +250,7 @@ public class Player : MonoBehaviour {
 
         m_fDist1 = Vector3.Distance(vTargetPos1, vPos1);
         m_fDist2 = Vector3.Distance(vTargetPos2, vPos2);
-        if (Input.GetKeyUp(KeyCode.Z)) ;
+        if (Input.GetKeyUp(KeyCode.Z)) 
         {
             if (cooltimedone == 1)
             {
