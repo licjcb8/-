@@ -39,15 +39,17 @@ public class Player : MonoBehaviour {
     public int exp = 0;
     public int lv = 1;
     public float dmg;
-    public GameObject DmgText;
+  //  public GameObject DmgText;
     public int Weapon = 0;
     public int itemselect;
     public GameObject mainCamera;
-    public float m_fMinDist = 3;
+    public float m_fMinDist = 5;
     public float m_fDist1 = 0;
     public float m_fDist2 = 0;
     public Transform m_Target1;
     public Transform m_Target2;
+    public Monster monster1;
+    public Monster monster2;
     public float accumulator = 0.0f;
     public int cooltimedone = 0;
     public float cooltime = 0.5f;
@@ -169,7 +171,7 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        DmgText = GameObject.Find("DMGText");
+        //DmgText = GameObject.Find("DMGText");
 
     }
     void OnCollisionEnter(Collision collision)
@@ -213,10 +215,9 @@ public class Player : MonoBehaviour {
                 accumulator = 0.0f;
             }
         }
-        if (cooltimedone == 1)
-        {
+       
             AttackMonster();
-        }
+        
         if (exp == 100)
         {
             LVUP();
@@ -241,11 +242,11 @@ public class Player : MonoBehaviour {
     }
     public void AttackMonster()
     {
-        m_Target1 =GameManager.GetInstance().monster.transform;
+        m_Target1 =monster1.transform;
         Vector3 vTargetPos1 = m_Target1.position;
         Vector3 vPos1 = transform.position;
 
-        m_Target2 = GameManager.GetInstance().boss.transform;
+        m_Target2 = monster2.transform;
         Vector3 vTargetPos2 = m_Target2.position;        Vector3 vPos2 = transform.position;
 
         m_fDist1 = Vector3.Distance(vTargetPos1, vPos1);
@@ -256,16 +257,16 @@ public class Player : MonoBehaviour {
             {
                 if (m_fDist1 < m_fMinDist)
                 {
-                    GameManager.GetInstance().monster.hp = GameManager.GetInstance().monster.hp - dmg;
+                    monster1.hp = monster1.hp - dmg;
                     cooltimedone = 0;
                 }
                 else if (m_fDist2 < m_fMinDist)
                 {
-                    GameManager.GetInstance().boss.hp = GameManager.GetInstance().boss.hp - dmg;
+                   monster2.hp = monster2.hp - dmg;
                     cooltimedone = 0;
                 }
-
             }
+            
         }
 
     }

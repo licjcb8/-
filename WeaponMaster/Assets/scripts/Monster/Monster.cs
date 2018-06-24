@@ -5,8 +5,8 @@ using UnityEngine;
 public class Monster : MonoBehaviour {
     public ItemBox itembox;
     public StatusBar Hpbar;
-    public GameObject RsMonster;
-    public Transform RsPos;
+    public Transform DeathPos;
+    public Transform RespawnPos;
     public float atk = 10;
     public float def = 2;
     public float hpmax = 100;
@@ -19,6 +19,9 @@ public class Monster : MonoBehaviour {
     public Rigidbody monster;
    public bool isDie = false;
     public float accumulator = 0.0f;
+    public float accumulator2 = 0.0f;
+    public float Respawn = 3.0f;
+    public int RespawnDone = 0;
     public int Resetdone = 0;
     public float Reset = 0.2f;
     public int hit = 0;
@@ -33,7 +36,16 @@ public class Monster : MonoBehaviour {
 	void Update () {
         if (hit == 1)
         { accumulator += Time.deltaTime; }
-        
+        if (RespawnDone == 1)
+        {
+            accumulator2 += Time.deltaTime;
+        }
+        if (accumulator2 >= Respawn)
+        {
+            transform.position = RespawnPos.transform.position;
+            RespawnDone = 0;
+            accumulator2 = 0.0f;
+        }
         if (accumulator >= Reset)
         {
             Resetdone= 1;
@@ -69,7 +81,8 @@ public class Monster : MonoBehaviour {
     {
         if (isDie == true)
         {
-            Destroy(gameObject);
+            isDie = false;
+            hp = hpmax;
             GameManager.GetInstance().m_cPlayer.exp = GameManager.GetInstance().m_cPlayer.exp + exp;
             RespawnMonster();
             itembox.GiveItem(GameManager.GetInstance().m_cPlayer);
@@ -106,10 +119,9 @@ public class Monster : MonoBehaviour {
     }
     void RespawnMonster()
     {
-        GameObject objGame = Instantiate(RsMonster, RsPos.position, RsPos.rotation);
-       Monster monster = objGame.GetComponent<Monster>();
-        monster.RsMonster = RsMonster;
-        monster.RsPos = RsPos;
+        transform.position = DeathPos.transform.position;
+        
+        RespawnDone = 1;
         
     }
 
