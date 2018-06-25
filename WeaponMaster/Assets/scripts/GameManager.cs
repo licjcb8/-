@@ -9,10 +9,6 @@ using System.Linq;
 public class GameManager : MonoBehaviour {
     public Player m_cPlayer;
     public NPC m_cNPC;
-    public GameObject mon1;
-    public GameObject mon2;
-    public Monster monster;
-    public Monster boss;
     public ItemManager m_cItemManager;
     public GUIManager m_cGUIManager;
     public GUIManager.eSceneStatus m_eSceneStatus;
@@ -54,8 +50,6 @@ public class GameManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        monster = mon1.GetComponent<Monster>();
-        boss = mon2.GetComponent<Monster>();
 
 	}
     

@@ -15,6 +15,7 @@ public class NavTracing : MonoBehaviour {
 	void Start () {
        
         m_cNavMeshAgent = GetComponent<NavMeshAgent>();
+        
 	}
 
     // Update is called once per frame

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -6070,6 +6070,16 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 504430062}
+    - target: {fileID: 114969804869495786, guid: a85d4b6bd3e00aa4ba423470d44c2b93,
+        type: 2}
+      propertyPath: m_fMinDist
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 195204972962593038, guid: a85d4b6bd3e00aa4ba423470d44c2b93,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a85d4b6bd3e00aa4ba423470d44c2b93, type: 2}
   m_IsPrefabParent: 0
@@ -6691,10 +6701,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_cPlayer: {fileID: 776538547}
   m_cNPC: {fileID: 731194574}
-  mon1: {fileID: 1058473790}
-  mon2: {fileID: 1162248528}
-  monster: {fileID: 1058473796}
-  boss: {fileID: 1162248533}
   m_cItemManager: {fileID: 1228907796}
   m_cGUIManager: {fileID: 1466210724}
   m_eSceneStatus: 0
@@ -6711,11 +6717,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1058473790 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1637844397659608, guid: 65ee11f14fb92f54497d7f84e2fd7b62,
-    type: 2}
-  m_PrefabInternal: {fileID: 1885531539}
 --- !u!114 &1058473796 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114149699168499774, guid: 65ee11f14fb92f54497d7f84e2fd7b62,
@@ -7662,11 +7663,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1162248528 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1400644714514348, guid: a85d4b6bd3e00aa4ba423470d44c2b93,
-    type: 2}
-  m_PrefabInternal: {fileID: 904005946}
 --- !u!114 &1162248533 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114058662987771520, guid: a85d4b6bd3e00aa4ba423470d44c2b93,
@@ -12896,6 +12892,16 @@ Prefab:
       propertyPath: RespawnPos
       value: 
       objectReference: {fileID: 421218287}
+    - target: {fileID: 114346616728095428, guid: 65ee11f14fb92f54497d7f84e2fd7b62,
+        type: 2}
+      propertyPath: m_fMinDist
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 195687112820039866, guid: 65ee11f14fb92f54497d7f84e2fd7b62,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65ee11f14fb92f54497d7f84e2fd7b62, type: 2}
   m_IsPrefabParent: 0

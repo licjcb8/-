@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Monster : MonoBehaviour {
     public ItemBox itembox;
@@ -25,15 +26,19 @@ public class Monster : MonoBehaviour {
     public int Resetdone = 0;
     public float Reset = 0.2f;
     public int hit = 0;
-
+    
 
     // Use this for initialization
     void Start () {
       
 	}
-	
-	// Update is called once per frame
-	void Update () {
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(DeathPos.transform.position, 10);
+    }
+        // Update is called once per frame
+        void Update () {
         if (hit == 1)
         { accumulator += Time.deltaTime; }
         if (RespawnDone == 1)
@@ -45,7 +50,9 @@ public class Monster : MonoBehaviour {
             transform.position = RespawnPos.transform.position;
             RespawnDone = 0;
             accumulator2 = 0.0f;
+            GetComponent<NavMeshAgent>().enabled = true;
         }
+
         if (accumulator >= Reset)
         {
             Resetdone= 1;
@@ -82,6 +89,8 @@ public class Monster : MonoBehaviour {
         if (isDie == true)
         {
             isDie = false;
+            monster.isKinematic = true;
+            GetComponent<NavMeshAgent>().enabled = false;
             hp = hpmax;
             GameManager.GetInstance().m_cPlayer.exp = GameManager.GetInstance().m_cPlayer.exp + exp;
             RespawnMonster();
@@ -97,17 +106,12 @@ public class Monster : MonoBehaviour {
         if (collision.collider.tag == "Player")
         {
             rigidbodyTarget.AddForce(transform.forward * m_fPower * m_fSpeed);
-            //dmg = collision.gameObject.GetComponent<Player>().atk - def;
-            //if (dmg <= 0)
-            //{
-            //    dmg = 0;
-            //}
-            //hp = hp - dmg;
+        
             hit = 1;
            
         }
 
-        else if (collision.collider.tag == "Wall")
+       else if (collision.collider.tag == "Wall")
         {
             monster.isKinematic = true;
         }
