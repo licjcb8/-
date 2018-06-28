@@ -58,6 +58,5 @@ public class DynmicAxis : MonoBehaviour
 
         if (collision.collider.tag == "Monster")
         { rigidbodyTarget.AddForce(transform.forward * m_fPower * m_fSpeed); }
-
     }
 }

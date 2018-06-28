@@ -29,9 +29,7 @@ public class NavTracing : MonoBehaviour {
        m_Target = GameManager.GetInstance().m_cPlayer.transform;
         Vector3 vTargetPos = m_Target.position;
         Vector3 vPos = transform.position;
-
         m_fDist = Vector3.Distance(vTargetPos, vPos);
-
         if (m_fDist < m_fMinDist) 
             m_cNavMeshAgent.SetDestination(vTargetPos);
     }
